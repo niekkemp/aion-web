@@ -1,0 +1,188 @@
+---
+import navLogo from "../assets/Aion-Media-Group-Logo-Full.png";
+import NavItemDesktop from "./NavItemDesktop.astro";
+import NavItemMobile from "./NavItemMobile.astro";
+
+const navItems = [
+	{
+		label: "Solutions",
+		href: "#", // Header itself is a link
+		dropdown: [
+			{ label: "Titan Lighthouse", href: "#" },
+			{ label: "DRM & Content Protection", href: "#" },
+			{ label: "Hardware Solutions", href: "#" },
+			{ label: "VOD Applications", href: "#" },
+			{ label: "Media Supply Chain", href: "#" },
+		],
+	},
+	{
+		label: "Industries",
+		href: "#",
+		dropdown: [
+			{ label: "Defense & Government", href: "#" },
+			{ label: "Hospitals & Care Facilities", href: "#" },
+			{ label: "Maritime", href: "#" },
+			{ label: "Air Carriers", href: "#" },
+			{ label: "Education", href: "#" },
+			{ label: "Public Transport", href: "#" },
+		],
+	},
+	{ label: "About us", href: "#" },
+	{ label: "Cases", href: "#" },
+	{ label: "Partnerships", href: "#" },
+];
+
+const navButtons = [
+	{ label: "Partner login", href: "/partner-login", class: "btn-primary" },
+	{ label: "Contact", href: "/contact", class: "btn-secondary" },
+];
+---
+
+<!-- Navbar -->
+<nav class="fixed top-0 w-full bg-white-100 shadow-md">
+	<div class="container flex items-center justify-between py-3">
+		<!-- Logo -->
+		<a href="/" class="flex-shrink-0">
+			<img src={navLogo.src} alt="Aion Media Logo" class="w-35" />
+		</a>
+
+		<!-- Desktop Nav -->
+		<div class="hidden lg:flex items-center space-x-4 xl:space-x-10">
+			<ul class="flex items-center space-x-4 xl:space-x-6">
+				{
+					navItems.map((item) => (
+						<NavItemDesktop
+							href={item.href}
+							label={item.label}
+							dropdown={item.dropdown}
+						/>
+					))
+				}
+			</ul>
+
+			<!-- Right: Buttons -->
+			<div class="flex space-x-4">
+				{
+					navButtons.map((btn) => (
+						<a href={btn.href} class={btn.class}>
+							{btn.label}
+						</a>
+					))
+				}
+			</div>
+		</div>
+
+		<!-- Mobile Nav Toggle -->
+		<button id="mobile-toggle" class="lg:hidden p-2 cursor-pointer">
+			<svg class="h-6 w-6" viewBox="0 0 24 24" stroke="currentColor">
+				<path
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					stroke-width="2"
+					d="M4 6h16M4 12h16M4 18h16"></path>
+			</svg>
+		</button>
+	</div>
+</nav>
+
+<!-- Mobile Slide-In Panel -->
+<aside
+	id="mobile-panel"
+	class="fixed top-0 right-0 h-screen w-9/10 max-w-sm translate-x-full bg-white-100 shadow-2xl p-6 space-y-6 transform transition-transform duration-200 z-50 lg:hidden"
+>
+	<!-- Close Button -->
+	<div class="flex justify-end">
+		<button id="close-mobile-panel" class="lg:hidden p-2 cursor-pointer">
+			<svg class="h-6 w-6" viewBox="0 0 24 24" stroke="currentColor">
+				<path
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					stroke-width="2"
+					d="M6 18L18 6M6 6l12 12"></path>
+			</svg>
+		</button>
+	</div>
+
+	<!-- Mobile Menu -->
+	<ul class="flex flex-col space-y-3">
+		{
+			navItems.map((item, idx) => (
+				<NavItemMobile
+					href={item.href}
+					label={item.label}
+					dropdown={item.dropdown}
+					idx={idx}
+				/>
+			))
+		}
+	</ul>
+
+	<!-- Buttons -->
+	<div class="flex flex-col space-y-3">
+		{
+			navButtons.map((btn) => (
+				<a href={btn.href} class={btn.class}>
+					{btn.label}
+				</a>
+			))
+		}
+	</div>
+</aside>
+
+<script is:inline>
+	document.addEventListener("DOMContentLoaded", () => {
+		const menuBtn = document.querySelector("#mobile-toggle");
+		const closeBtn = document.querySelector("#close-mobile-panel");
+		const panel = document.querySelector("#mobile-panel");
+
+		const collapseAllDropdowns = () => {
+			document.querySelectorAll("[id^='dropdown-menu-']").forEach((m) => {
+				m.style.maxHeight = "0px";
+				const icon = document
+					.querySelector(
+						`#${m.id.replace("dropdown-menu", "dropdown-toggle")}`,
+					)
+					?.querySelector("svg");
+				icon?.classList.remove("rotate-180");
+			});
+		};
+
+		if (menuBtn && panel) {
+			const openMenu = () => {
+				panel.classList.replace("translate-x-full", "translate-x-0");
+			};
+
+			const closeMenu = () => {
+				panel.classList.replace("translate-x-0", "translate-x-full");
+				collapseAllDropdowns(); // 🔹 Collapse dropdowns when closing menu
+			};
+
+			menuBtn.addEventListener("click", openMenu);
+			closeBtn?.addEventListener("click", closeMenu);
+		}
+
+		// MOBILE NAV DROPDOWNS (ACCORDION)
+		const toggles = document.querySelectorAll("[id^='dropdown-toggle-']");
+		toggles.forEach((toggle) => {
+			const menu = document.querySelector(
+				`#${toggle.id.replace("dropdown-toggle", "dropdown-menu")}`,
+			);
+			const icon = toggle.querySelector("svg");
+			if (!menu || !icon) return;
+
+			toggle.addEventListener("click", () => {
+				const isOpen =
+					menu.style.maxHeight && menu.style.maxHeight !== "0px";
+
+				// Close all dropdowns first
+				collapseAllDropdowns();
+
+				// Then open clicked dropdown if it wasn't already open
+				if (!isOpen) {
+					menu.style.maxHeight = `${menu.scrollHeight}px`;
+					icon.classList.add("rotate-180");
+				}
+			});
+		});
+	});
+</script>

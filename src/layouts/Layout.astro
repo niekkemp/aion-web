@@ -1,22 +1,62 @@
+---
+import "../styles/global.css";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+const { title = "Unnamed Page" } = Astro.props;
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
+		<!-- Page meta -->
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+		<!-- Page title and icon -->
+		<link rel="icon" type="image/svg+xml" href="/favicon.png" />
+		<title>AION MEDIA - {title}</title>
+
+		<!-- Load fonts from google -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+
+	<!-- Page Body -->
+	<body
+		class="font-primary text-black-200 bg-white-100 min-h-screen w-full flex flex-col"
+	>
+		<!-- Navbar -->
+		<Navbar />
+
+		<!-- Main Page Content -->
+		<main id="page-content" class="flex-1">
+			<slot />
+		</main>
+
+		<!-- Footer -->
+		<Footer />
+	</body>
+
+	<script is:inline>
+		const navbarEl = document.querySelector("nav");
+		const pageContent = document.querySelector("#page-content");
+
+		if (
+			navbarEl instanceof HTMLElement &&
+			pageContent instanceof HTMLElement
+		) {
+			pageContent.style.paddingTop = `${navbarEl.offsetHeight}px`;
+
+			const resizeObserver = new ResizeObserver(() => {
+				pageContent.style.paddingTop = `${navbarEl.offsetHeight}px`;
+			});
+
+			resizeObserver.observe(navbarEl);
+		}
+	</script>
+</html>
