@@ -1,0 +1,33 @@
+---
+import SolutionFeatureSectionCards from "./SolutionFeatureSectionCards.astro";
+const { header, subText, features } = Astro.props;
+---
+
+<!-- Features Section -->
+<section
+    class="bg-white-200 py-14 md:py-20 shadow-sm md:shadow-md"
+    aria-labelledby="features-heading"
+>
+    <div class="container">
+        <!-- Section Heading -->
+        <div class="max-w-2xl mb-12 text-center mx-auto">
+            <h2 class="text-blue-400 text-2xl sm:text-3xl font-bold">
+                {header}
+            </h2>
+            <p class="text-gray mt-3 text-base sm:text-lg leading-relaxed">
+                {subText}
+            </p>
+        </div>
+
+        <!-- Features Grid -->
+        <div
+            class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-10"
+        >
+            {
+                features.map((feature) => (
+                    <SolutionFeatureSectionCards feature={feature} />
+                ))
+            }
+        </div>
+    </div>
+</section>

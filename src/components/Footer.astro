@@ -1,9 +1,90 @@
 ---
+import footerLogo from "../assets/Aion-Media-Group-Logo-White.png";
+import { navItems } from "../data/nav-items.js";
+
 const currentYear = new Date().getFullYear();
+
+// Get the "Solutions" section from navItems dynamically
+const solutions =
+    navItems.find((item) => item.label === "Solutions")?.dropdown || [];
 ---
 
-<footer class="bg-black-200 text-white-200 py-5">
-    <div class="container text-center">
-        Copyright © {currentYear} AION Media Group
+<footer
+    class="bg-gradient-to-r from-black-200 to-gray text-white-200 pt-12 pb-6 relative"
+>
+    <div class="container">
+        <!-- Top Row: Logo -->
+        <div class="mb-8">
+            <img
+                src={footerLogo.src}
+                alt="AION Media Group Logo"
+                class="w-35"
+                loading="lazy"
+            />
+        </div>
+
+        <!-- Main Footer Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <!-- Left Column -->
+            <div>
+                <!-- Tagline -->
+                <h3
+                    class="font-bold text-sm uppercase tracking-wide leading-snug"
+                >
+                    Media and Entertainment Without Borders.<br />
+                    Always, Everywhere, Secure.
+                </h3>
+
+                <!-- Description -->
+                <p class="mt-4 text-sm leading-relaxed max-w-md">
+                    With proven DRM technology and full offline functionality,
+                    AION delivers the only white-label video solutions that
+                    truly work end-to-end under demanding conditions.
+                </p>
+            </div>
+
+            <!-- Middle Column: Contact Info -->
+            <div class="md:text-right">
+                <h3 class="font-bold text-sm uppercase mb-4">
+                    Contact Information
+                </h3>
+                <p class="text-sm mb-2">
+                    mail:
+                    <a
+                        href="mailto:hello@aionmedia.com"
+                        class="hover:underline"
+                    >
+                        hello@aionmedia.com
+                    </a>
+                </p>
+                <p class="text-sm">
+                    Address: Hendrik Figeweg 1X, 2031 BJ Haarlem
+                </p>
+            </div>
+
+            <!-- Right Column: Solutions -->
+            <div class="md:text-right">
+                <h3 class="font-bold text-sm uppercase mb-4">Solutions</h3>
+                <ul class="space-y-2">
+                    {
+                        solutions.map((solution) => (
+                            <li>
+                                <a
+                                    href={solution.href}
+                                    class="text-sm hover:underline"
+                                >
+                                    {solution.label}
+                                </a>
+                            </li>
+                        ))
+                    }
+                </ul>
+            </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="border-t border-gray mt-10 pt-5 text-center text-sm">
+            © {currentYear} AION Media Group. All rights reserved.
+        </div>
     </div>
 </footer>

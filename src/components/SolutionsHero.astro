@@ -1,0 +1,64 @@
+---
+import wavyLines from "../assets/wavy-lines.png";
+import heroImgSolutions from "../assets/hero-img-solutions.png";
+
+const { heroData } = Astro.props;
+---
+
+<header class="bg-white-200 py-16 md:py-20 lg:py-24 shadow-sm md:shadow-md">
+    <div class="container">
+        <!-- HERO WRAPPER -->
+        <div
+            class="flex flex-col-reverse md:flex-row items-center justify-between gap-8 md:gap-4 md:h-[20rem] lg:h-[32rem] relative"
+        >
+            <!-- LEFT: TEXT CONTENT -->
+            <div
+                class="max-w-xl md:max-w-sm lg:max-w-xl text-center md:text-left z-20 flex flex-col justify-center h-full"
+            >
+                <h3
+                    class="text-gray uppercase font-semibold tracking-widest text-sm sm:text-base lg:text-lg mb-4"
+                >
+                    Solutions
+                </h3>
+
+                <h1
+                    class="text-blue-300 font-extrabold leading-tight text-3xl sm:text-4xl md:text-3xl lg:text-4xl xl:text-5xl mb-3"
+                >
+                    {heroData.header}
+                </h1>
+
+                <h2
+                    class="text-blue-200 font-medium leading-snug text-lg sm:text-xl md:text-xl lg:text-2xl xl:text-3xl mb-5"
+                >
+                    {heroData.subHeader}
+                </h2>
+
+                <p
+                    class="text-gray leading-relaxed max-w-lg mx-auto md:mx-0 text-base lg:text-lg"
+                    set:html={heroData.subText}
+                />
+            </div>
+
+            <!-- RIGHT: HERO IMAGE + WAVY LINES -->
+            <div
+                class="relative flex justify-center md:justify-end md:items-center w-full h-full sm:w-12/20 md:w-1/2 z-10"
+            >
+                <!-- Decorative Background -->
+                <img
+                    src={wavyLines.src}
+                    alt=""
+                    aria-hidden="true"
+                    class="absolute right-1/2 translate-x-1/2 md:right-0 md:translate-x-0 bottom-1/2 translate-y-1/2 select-none pointer-events-none"
+                />
+
+                <!-- Foreground Hero Image -->
+                <img
+                    src={heroImgSolutions.src}
+                    alt="Illustration of Titan Lighthouse cloud licensing platform"
+                    loading="lazy"
+                    class="z-20 object-contain drop-shadow-2xl"
+                />
+            </div>
+        </div>
+    </div>
+</header>

@@ -1,0 +1,30 @@
+---
+const { feature } = Astro.props;
+---
+
+<article
+    class="bg-white-100 border border-blue-100 rounded-2xl p-6 text-center md:text-start shadow-sm md:shadow-md"
+>
+    <!-- Icon -->
+    <div class="flex justify-center md:justify-start mb-4">
+        <span
+            class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-100 text-blue-400 shadow-sm"
+        >
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+                class="w-7 h-7"
+                set:html={feature.icon}
+            />
+        </span>
+    </div>
+    <!-- Title -->
+    <h3 class="text-blue-400 font-semibold text-lg mb-2">
+        {feature.title}
+    </h3>
+    <!-- Description -->
+    <p class="text-gray leading-relaxed">{feature.description}</p>
+</article>

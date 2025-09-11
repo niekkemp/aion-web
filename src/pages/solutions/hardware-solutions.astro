@@ -1,0 +1,48 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import SolutionFeaturesSection from "../../components/SolutionFeaturesSection.astro";
+import SolutionsHero from "../../components/SolutionsHero.astro";
+import SplitSection from "../../components/SolutionSplitSection.astro";
+import SolutionUseCasesSection from "../../components/SolutionUseCasesSection.astro";
+import CtaSection from "../../components/CtaSection.astro";
+
+import {
+    sections1,
+    heroData,
+    features,
+    useCases,
+    sections2,
+} from "../../data/hardware-solutions.js";
+---
+
+<Layout title="Hardware Solutions">
+    <!-- Hero Section -->
+    <SolutionsHero heroData={heroData} />
+
+    <!-- 1st Content Sections -->
+    {sections1.map((s) => <SplitSection {...s} />)}
+
+    <!-- Features Section -->
+    <SolutionFeaturesSection
+        header="Why Choose AION Hardware"
+        subText="AION Hardware delivers purpose-built systems designed for demanding environments — enabling secure, reliable media playback everywhere."
+        features={features}
+    />
+
+    <!-- Use Cases Section -->
+    <SolutionUseCasesSection
+        header="Use Cases Across Industries"
+        subText="AION DRM powers secure content delivery across aviation, defense, healthcare, and mobility — protecting premium libraries wherever they're delivered."
+        useCases={useCases}
+    />
+
+    <!-- 2nd Content Sections -->
+    <div class="bg-white-200 shadow-sm md:shadow-md">
+        {sections2.map((s) => <SplitSection {...s} />)}
+    </div>
+
+    <CtaSection
+        header="Power Your Media Delivery with AION Hardware"
+        subText="AION Hardware provides purpose-built systems for secure, reliable video playback anywhere — from aircraft and ships to hospitals, defense bases, and public transport. Get in touch today to schedule a personalized demo and discover how we enable seamless media delivery, even in the most demanding environments."
+    />
+</Layout>

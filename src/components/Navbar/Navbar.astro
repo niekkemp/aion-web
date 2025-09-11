@@ -1,41 +1,8 @@
 ---
-import navLogo from "../../assets/Aion-Media-Group-Logo-Full.png";
+import navLogo from "../../assets/Aion-Media-Group-Logo-Black.png";
 import NavItemDesktop from "./NavItemDesktop.astro";
 import NavItemMobile from "./NavItemMobile.astro";
-
-const navItems = [
-	{
-		label: "Solutions",
-		href: "#", // Header itself is a link
-		dropdown: [
-			{ label: "Titan Lighthouse", href: "/titan-lighthouse" },
-			{ label: "DRM & Content Protection", href: "#" },
-			{ label: "Hardware Solutions", href: "#" },
-			{ label: "VOD Applications", href: "#" },
-			{ label: "Media Supply Chain", href: "#" },
-		],
-	},
-	{
-		label: "Industries",
-		href: "#",
-		dropdown: [
-			{ label: "Defense & Government", href: "#" },
-			{ label: "Hospitals & Care Facilities", href: "#" },
-			{ label: "Maritime", href: "#" },
-			{ label: "Air Carriers", href: "#" },
-			{ label: "Education", href: "#" },
-			{ label: "Public Transport", href: "#" },
-		],
-	},
-	{ label: "About us", href: "#" },
-	{ label: "Cases", href: "#" },
-	{ label: "Partnerships", href: "#" },
-];
-
-const navButtons = [
-	{ label: "Partner login", href: "/partner-login", class: "btn-primary" },
-	{ label: "Contact", href: "/contact", class: "btn-secondary" },
-];
+import { navItems, navButtons } from "../../data/nav-items.js";
 ---
 
 <!-- Navbar -->

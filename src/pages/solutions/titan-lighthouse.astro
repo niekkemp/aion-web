@@ -1,0 +1,85 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import SolutionFeaturesSection from "../../components/SolutionFeaturesSection.astro";
+import SolutionsHero from "../../components/SolutionsHero.astro";
+import CtaSection from "../../components/CtaSection.astro";
+
+import { heroData, features } from "../../data/titan-lighthouse.js";
+---
+
+<Layout title="Titan Lighthouse">
+    <SolutionsHero heroData={heroData} />
+
+    <!-- Announcement block -->
+    <section class="py-10 md:py-14" role="alert">
+        <div class="container text-center md:text-left">
+            <div
+                class="p-6 md:p-8 lg:p-10 rounded-3xl bg-blue-100 max-w-5xl mx-auto shadow-sm md:shadow-md"
+            >
+                <!-- Icon -->
+                <div class="flex justify-center md:justify-start mb-5">
+                    <div
+                        class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-400 shadow-sm"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="2"
+                            stroke="currentColor"
+                            class="w-6 h-6 text-blue-100"
+                            aria-hidden="true"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                            ></path>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Heading -->
+                <h2 class="text-blue-400 text-2xl sm:text-3xl font-bold mb-4">
+                    Migrate Before the Widevine CLS Shutdown in 2027
+                </h2>
+
+                <!-- Body -->
+                <p class="text-gray text-base sm:text-lg leading-relaxed mb-4">
+                    Google has announced the
+                    <span class="font-semibold text-blue-300"
+                        >permanent shutdown</span
+                    >
+                    of its Widevine Cloud License Service (CLS) on
+                    <span class="font-semibold text-blue-300"
+                        >April 13, 2027</span
+                    >. If you rely on CLS for secure video distribution, now’s
+                    the time to plan your migration.
+                </p>
+
+                <p class="text-gray text-base sm:text-lg leading-relaxed">
+                    <span class="font-semibold text-blue-300"
+                        >Titan Lighthouse</span
+                    >
+                    by <span class="font-semibold">AION Media Group</span> is a modern,
+                    scalable, multi-tenant replacement designed to
+                    <span class="font-semibold text-blue-300"
+                        >seamlessly take over</span
+                    > — no service disruptions, no costly rebuilds, and no compromises.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <SolutionFeaturesSection
+        header="Why Choose Titan Lighthouse"
+        subText="A future-proof replacement for Widevine CLS — built for continuity, scale, and compliance."
+        features={features}
+    />
+
+    <CtaSection
+        header="Future Ready Licensing Starts Here"
+        subText="Titan Lighthouse makes migrating away from Widevine CLS effortless and secure. Get in touch today and we can arrange a personalized demo if you would like to see it in action."
+    />
+</Layout>

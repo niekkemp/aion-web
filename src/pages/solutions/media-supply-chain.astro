@@ -1,0 +1,49 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import SolutionFeaturesSection from "../../components/SolutionFeaturesSection.astro";
+import SolutionsHero from "../../components/SolutionsHero.astro";
+import SplitSection from "../../components/SolutionSplitSection.astro";
+import SolutionUseCasesSection from "../../components/SolutionUseCasesSection.astro";
+import CtaSection from "../../components/CtaSection.astro";
+
+import {
+    sections1,
+    heroData,
+    features,
+    useCases,
+    sections2,
+} from "../../data/media-supply-chain.js";
+---
+
+<Layout title="Media Supply Chain & Workflow Services">
+    <!-- Hero Section -->
+    <SolutionsHero heroData={heroData} />
+
+    <!-- 1st Content Sections -->
+    {sections1.map((s) => <SplitSection {...s} />)}
+
+    <!-- Features Section -->
+    <SolutionFeaturesSection
+        header="Why Choose AION Media Supply Chain Solutions"
+        subText="AION Media Group unifies ingest, preparation, packaging, DRM, analytics, and distribution into one streamlined workflow — giving you full visibility, control, and efficiency from start to finish."
+        features={features}
+    />
+
+    <!-- Use Cases Section -->
+    <SolutionUseCasesSection
+        header="Use Cases Across Industries"
+        subText="AION Media Supply Chain Solutions power secure, efficient, and scalable workflows for content owners, distributors, and operators — from film studios and airlines to healthcare, defense, and education."
+        useCases={useCases}
+    />
+
+    <!-- 2nd Content Sections -->
+    <div class="bg-white-200 shadow-sm md:shadow-md">
+        {sections2.map((s) => <SplitSection {...s} />)}
+    </div>
+
+    <!-- CTA Section -->
+    <CtaSection
+        header="Streamline Your Media Supply Chain with AION"
+        subText="From ingest to audience, AION Media Group unifies every step of your workflow. Get in touch today to schedule a personalized demo and see how our platform enables efficient, secure, and scalable media delivery."
+    />
+</Layout>

@@ -1,0 +1,48 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import SolutionFeaturesSection from "../../components/SolutionFeaturesSection.astro";
+import SolutionsHero from "../../components/SolutionsHero.astro";
+import SplitSection from "../../components/SolutionSplitSection.astro";
+import SolutionUseCasesSection from "../../components/SolutionUseCasesSection.astro";
+import CtaSection from "../../components/CtaSection.astro";
+
+import {
+    sections1,
+    heroData,
+    features,
+    useCases,
+    sections2,
+} from "../../data/drm-content-protection.js";
+---
+
+<Layout title="DRM & Content Protection">
+    <!-- Hero Section -->
+    <SolutionsHero heroData={heroData} />
+
+    <!-- 1st Content Sections -->
+    {sections1.map((s) => <SplitSection {...s} />)}
+
+    <!-- Features Section -->
+    <SolutionFeaturesSection
+        header="Why Choose AION DRM"
+        subText="AION DRM delivers Hollywood-approved security, advanced rights management, and seamless integration — protecting your premium content everywhere."
+        features={features}
+    />
+
+    <!-- Use Cases Section -->
+    <SolutionUseCasesSection
+        header="Use Cases Across Industries"
+        subText="AION DRM powers secure content delivery across aviation, defense, healthcare, and mobility — protecting premium libraries wherever they're delivered."
+        useCases={useCases}
+    />
+
+    <!-- 2nd Content Sections -->
+    <div class="bg-white-200 shadow-sm md:shadow-md">
+        {sections2.map((s) => <SplitSection {...s} />)}
+    </div>
+
+    <CtaSection
+        header="Protect Premium Content with AION DRM"
+        subText="AION DRM delivers Hollywood-approved security, advanced rights management, and seamless integration. Get in touch today to schedule a personalized demo and see how we can protect your premium libraries across streaming, offline, and hybrid environments."
+    />
+</Layout>

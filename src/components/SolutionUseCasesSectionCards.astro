@@ -1,0 +1,24 @@
+---
+const { useCase } = Astro.props;
+---
+
+<div
+    class="bg-white-100 border border-blue-100 rounded-2xl p-6 text-center md:text-start shadow-sm md:shadow-md"
+>
+    <!-- Icon -->
+    <div
+        class="text-4xl mb-4 bg-gradient-to-tr from-blue-200 to-white-200 bg-clip-text text-transparent"
+    >
+        {useCase.icon}
+    </div>
+
+    <!-- Title -->
+    <h3 class="text-blue-400 font-semibold text-lg mb-2">
+        {useCase.title}
+    </h3>
+
+    <!-- Description -->
+    <p class="text-gray leading-relaxed">
+        {useCase.description}
+    </p>
+</div>

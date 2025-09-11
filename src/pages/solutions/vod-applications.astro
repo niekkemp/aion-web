@@ -1,0 +1,48 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import SolutionFeaturesSection from "../../components/SolutionFeaturesSection.astro";
+import SolutionsHero from "../../components/SolutionsHero.astro";
+import SplitSection from "../../components/SolutionSplitSection.astro";
+import SolutionUseCasesSection from "../../components/SolutionUseCasesSection.astro";
+import CtaSection from "../../components/CtaSection.astro";
+
+import {
+    sections1,
+    heroData,
+    features,
+    useCases,
+    sections2,
+} from "../../data/vod-applications.js";
+---
+
+<Layout title="Hardware Solutions">
+    <!-- Hero Section -->
+    <SolutionsHero heroData={heroData} />
+
+    <!-- 1st Content Sections -->
+    {sections1.map((s) => <SplitSection {...s} />)}
+
+    <!-- Features Section -->
+    <SolutionFeaturesSection
+        header="Why Choose AION VOD Applications"
+        subText="AION VOD Applications deliver secure, branded video apps with offline-first capabilities and cross-platform deployment — built to work everywhere, for every audience."
+        features={features}
+    />
+
+    <!-- Use Cases Section -->
+    <SolutionUseCasesSection
+        header="Use Cases Across Industries"
+        subText="AION VOD Applications power branded, secure, and offline-ready video apps across aviation, healthcare, defense, education, and maritime — keeping audiences connected wherever they are."
+        useCases={useCases}
+    />
+
+    <!-- 2nd Content Sections -->
+    <div class="bg-white-200 shadow-sm md:shadow-md">
+        {sections2.map((s) => <SplitSection {...s} />)}
+    </div>
+
+    <CtaSection
+        header="Launch Branded, Secure VOD Apps with AION"
+        subText="AION VOD Applications deliver premium user experiences with Hollywood-approved DRM, offline-first playback, and seamless multi-device compatibility. Get in touch today to schedule a personalized demo and see how we can help you launch fast, scale globally, and stay secure."
+    />
+</Layout>
