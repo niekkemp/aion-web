@@ -25,9 +25,9 @@ export const navItems = [
             { label: "Public Transport", href: "/industries/public-transport" },
         ],
     },
-    { label: "About us", href: "#" },
-    { label: "Cases", href: "#" },
-    { label: "Partnerships", href: "#" },
+    { label: "About us", href: "/about-us" },
+    { label: "Cases", href: "/cases" },
+    { label: "Partnerships", href: "/partnerships" },
 ];
 
 export const navButtons = [

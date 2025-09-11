@@ -1,0 +1,68 @@
+---
+import Layout from "../layouts/Layout.astro";
+import hero from "../assets/cases-hero.jpg";
+import IndustryHero from "../components/IndustryHero.astro";
+import CtaSection from "../components/CtaSection.astro";
+import CasesSplitSection from "../components/CasesSplitSection.astro";
+
+// logos
+import filmserviceLogo from "../assets/brand-filmservice.png";
+import airfiLogo from "../assets/brand-airfi.png";
+import nbdbLogo from "../assets/brand-nbdb.png";
+---
+
+<Layout title="Cases">
+    <!-- Hero -->
+    <IndustryHero
+        title="Cases"
+        tagline="Partnerships that scale in practice"
+        intro="Every project we deliver starts with the same principle: combine secure technology with real-world usability. These case studies show how AION Media Group enables clients and partners to grow, adapt and deliver media where it matters most."
+        image={hero}
+    />
+
+    <!-- Filmservice -->
+    <CasesSplitSection
+        title="Filmservice"
+        body="Filmservice, a leading distributor of films and series, needed a platform to handle multi-territory licensing and distribution. Content had to be protected with Hollywood-approved DRM, packaged for different platforms and rolled out at scale.<br><br>AION Media Group provided a complete supply chain solution with ingest, encoding, packaging and rights management. Using our CMS, Filmservice controls licensing terms, schedules content releases and monitors performance across regions. The result is a streamlined workflow that reduces operational overhead while ensuring compliance with global distributors."
+        image={filmserviceLogo}
+    />
+
+    <!-- AirFi -->
+    <div class="bg-white-200 shadow-sm md:shadow-md">
+        <CasesSplitSection
+            title="AirFi"
+            body="AirFi delivers inflight entertainment solutions for airlines worldwide. Their challenge was to provide passengers with a seamless video experience without relying on live streaming, which is costly and unreliable in the air.<br><br>Together with AirFi, AION Media Group built an offline-first platform powered by portable servers and branded applications. Using our Titan Aegis encoding, content files were reduced by up to 70 percent without loss of quality, lowering bandwidth and storage costs. Same-day content updates became possible, and Hollywood-approved DRM ensured licensing compliance. Passengers now enjoy fresh, secure content directly on their own devices, even without connectivity."
+            image={airfiLogo}
+        />
+    </div>
+
+    <!-- NBD Biblion -->
+    <CasesSplitSection
+        title="NBD Biblion"
+        body="NBD Biblion, a key player in educational and cultural services, needed a secure platform to distribute educational video content to schools and libraries. The challenge was balancing accessibility with rights management and analytics.<br><br>AION Media Group developed a tailored platform that combines offline access with detailed reporting. Administrators track device usage, viewing behavior and engagement, while students and teachers access content reliably in both connected and restricted environments. By integrating rights clearance and multi-language support, NBD can expand its offerings without compromising on security or user experience."
+        image={nbdbLogo}
+    />
+
+    <!-- Business Value -->
+    <section class="bg-white-200 py-10 md:py-14 shadow-sm md:shadow-md">
+        <div class="container text-center max-w-3xl">
+            <h2 class="text-blue-400 text-2xl sm:text-3xl font-bold">
+                The business value
+            </h2>
+            <p class="text-gray mt-3 text-base sm:text-lg leading-relaxed">
+                These partnerships show how AION Media Group adapts to different
+                industries while delivering the same core strengths: secure DRM,
+                offline-first infrastructures, scalable workflows and actionable
+                analytics. From commercial entertainment to education and
+                cultural services, we help organizations transform the way they
+                deliver media.
+            </p>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <CtaSection
+        header="Ready to start your own case?"
+        subText="Get in touch with our team to explore how we can build a solution tailored to your industry."
+    />
+</Layout>
