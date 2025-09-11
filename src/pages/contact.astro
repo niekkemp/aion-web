@@ -1,0 +1,111 @@
+---
+import Layout from "../layouts/Layout.astro";
+import IndustryHero from "../components/IndustryHero.astro";
+
+import heroImg from "../assets/contact-hero.jpg";
+---
+
+<Layout title="Contact">
+    <IndustryHero
+        title="Get in Touch"
+        tagline="Let’s build the future of secure media together."
+        intro="Whether you’re looking to launch a streaming service, deploy offline-first media infrastructure, or explore custom enterprise solutions, our team is here to help. Reach out today and discover how AION Media Group can support your project — from first ideas to full-scale deployment."
+        image={heroImg}
+    />
+
+    <div class="bg-white-200 py-10 md:py-16">
+        <div class="container">
+            <div
+                class="p-8 md:p-10 border border-gray-200 shadow-xl rounded-[2rem] bg-white"
+            >
+                <h2 class="text-2xl font-bold mb-6 text-center md:text-left">
+                    Contact Us
+                </h2>
+
+                <!-- Contact Form -->
+                <form
+                    class="space-y-6"
+                    method="POST"
+                    action="https://formspree.io/f/xzzawzgq"
+                >
+                    <!-- Name -->
+                    <div>
+                        <label
+                            for="name"
+                            class="block text-sm font-medium text-gray-700 mb-1"
+                            >Full Name</label
+                        >
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            required
+                            class="w-full rounded-xl border border-gray-300 px-4 py-3 text-gray placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-blue-300"
+                            placeholder="Jane Doe"
+                        />
+                    </div>
+
+                    <!-- Email -->
+                    <div>
+                        <label
+                            for="email"
+                            class="block text-sm font-medium text-gray-700 mb-1"
+                            >Email Address</label
+                        >
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            required
+                            class="w-full rounded-xl border border-gray-300 px-4 py-3 text-gray placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-blue-300"
+                            placeholder="you@example.com"
+                        />
+                    </div>
+
+                    <!-- Company -->
+                    <div>
+                        <label
+                            for="company"
+                            class="block text-sm font-medium text-gray-700 mb-1"
+                            >Company</label
+                        >
+                        <input
+                            type="text"
+                            id="company"
+                            name="company"
+                            class="w-full rounded-xl border border-gray-300 px-4 py-3 text-gray placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-blue-300"
+                            placeholder="Your organization"
+                        />
+                    </div>
+
+                    <!-- Message -->
+                    <div>
+                        <label
+                            for="message"
+                            class="block text-sm font-medium text-gray-700 mb-1"
+                            >Message</label
+                        >
+                        <textarea
+                            id="message"
+                            name="message"
+                            rows="5"
+                            required
+                            class="w-full rounded-xl border border-gray-300 px-4 py-3 text-gray placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-blue-300"
+                            placeholder="Tell us a little about your project..."
+                        ></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="text-center md:text-left">
+                        <button
+                            type="submit"
+                            class="cursor-pointer inline-flex items-center justify-center rounded-xl bg-gray px-6 py-3 font-semibold text-white shadow-md hover:bg-black-200 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-offset-2 transition-colors"
+                        >
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</Layout>
