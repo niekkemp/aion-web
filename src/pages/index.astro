@@ -1,7 +1,370 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
+import homeHero from "../assets/home-hero.png";
+
+import SolutionSplitSection from "../components/SolutionSplitSection.astro";
+import CtaSection from "../components/CtaSection.astro"
+
+
+import logo1 from "../assets/brand-airfi.png";
+import logo2 from "../assets/brand-filmservice.png";
+import logo3 from "../assets/brand-nbdb.png";
+import logo4 from "../assets/brand-periscoop.png";
+
+import industriesImg from "../assets/home-industries.jpg";
+import aboutImg from "../assets/home-about.jpg";
+import casesImg from "../assets/home-cases.jpg";
+
+import { services } from "../data/home-services.js";
 ---
 
 <Layout title="Home">
-	<!-- <div class="h-screen bg-white-200">Readable</div> -->
+	<header
+		class="py-16 md:py-20 space-y-8 md:space-y-10 lg:py-24 bg-gradient-to-tr from-black-200 to-gray text-white-200"
+	>
+		<div class="container">
+			<!-- HERO WRAPPER -->
+			<div
+				class="flex flex-col-reverse md:flex-row items-center justify-between gap-8 md:gap-4 md:h-[20rem] lg:h-[32rem] relative"
+			>
+				<!-- LEFT: TEXT CONTENT -->
+				<div
+					class="max-w-md md:max-w-sm lg:max-w-lg xl:max-w-2xl text-center md:text-left z-20 flex flex-col justify-center h-full"
+				>
+					<h1
+						class="font-extrabold leading-tight text-3xl sm:text-4xl md:text-3xl lg:text-4xl xl:text-5xl mb-3"
+					>
+						Media and entertainment without borders
+					</h1>
+
+					<h2
+						class="font-medium leading-snug text-lg sm:text-xl md:text-xl lg:text-2xl xl:text-3xl mb-5"
+					>
+						Always, Everywhere, Secure.
+					</h2>
+
+					<p
+						class="leading-relaxed mx-auto md:mx-0 text-base lg:text-lg mb-6"
+					>
+						With proven DRM technology and full offline
+						functionality, AION delivers the only white-label video
+						solutions that truly work end-to-end under demanding
+						conditions.
+					</p>
+
+					<a
+						href="#contact"
+						class="relative inline-block w-auto flex-none self-start mx-auto md:mx-0
+								font-semibold text-base sm:text-lg rounded-lg
+								px-6 py-3
+								transition-all duration-300 ease-out
+								hover:shadow-md md:hover:shadow-lg
+								bg-white-200 text-black-200 hover:bg-white-100 hover:text-gray
+								before:content-[''] before:absolute before:inset-0 before:rounded-lg
+								before:bg-[conic-gradient(from_90deg_at_center,_#0467F1_0deg,_#E54F6D_120deg,_#44BBA4_240deg,_#0467F1_360deg)]
+								before:blur-xl before:opacity-90 before:-z-10
+								hover:before:opacity-100 hover:before:scale-105 hover:before:animate-spin-slow"
+					>
+						Get started →
+					</a>
+				</div>
+
+				<!-- RIGHT: HERO IMAGE -->
+				<div
+					class="relative flex justify-center md:justify-end md:items-center w-full h-full sm:max-w-4/5 xl:max-w-[36rem] z-10"
+				>
+					<img
+						src={homeHero.src}
+						alt="Illustration showing AION secure media delivery"
+						loading="lazy"
+						class="z-20 object-contain max-h-[20rem] md:max-h-[24rem] lg:max-h-[28rem] xl:max-h-[32rem]"
+					/>
+				</div>
+			</div>
+		</div>
+
+		<!-- Brands -->
+		<div class="container text-center max-w-5xl">
+			<h2 class="text-2xl sm:text-3xl font-bold">
+				Trusted by international brands
+			</h2>
+			<hr
+				class="border-none h-10 bg-gradient-to-r from-red-300 via-blue-300 to-green-300 blur-[6rem]"
+			/>
+			<div
+				class="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-8 items-center justify-center"
+			>
+				<Image
+					src={logo1}
+					alt="AirFi"
+					class="mx-auto h-12 w-auto object-contain brightness-0 invert"
+				/>
+				<Image
+					src={logo2}
+					alt="Filmservice"
+					class="mx-auto h-12 w-auto object-contain brightness-0 invert"
+				/>
+				<Image
+					src={logo3}
+					alt="NBDB"
+					class="mx-auto h-12 w-auto object-contain brightness-0 invert"
+				/>
+				<Image
+					src={logo4}
+					alt="Periscoop"
+					class="mx-auto h-12 w-auto object-contain brightness-0 invert"
+				/>
+			</div>
+		</div>
+	</header>
+
+	<section
+		class="bg-white-200 py-14 md:py-20 shadow-sm md:shadow-md"
+		aria-labelledby="solutions-heading"
+	>
+		<div class="container">
+			<!-- Section Heading -->
+			<div class="max-w-3xl mb-12 text-center mx-auto">
+				<h2
+					id="solutions-heading"
+					class="text-2xl sm:text-3xl font-bold text-black-200"
+				>
+					AION Core Solutions
+				</h2>
+				<p class="mt-3 text-base sm:text-lg leading-relaxed text-gray">
+					Powerful video platforms built for every environment
+				</p>
+			</div>
+
+			<!-- Features Grid -->
+			<div
+				class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10"
+			>
+				<!-- Card 1 -->
+				<article
+					class="bg-white-100 border border-gray rounded-2xl p-6 text-center md:text-start shadow-sm md:shadow-md"
+				>
+					<!-- Icon -->
+					<div class="flex justify-center md:justify-start mb-4">
+						<span
+							class="flex items-center justify-center w-12 h-12 rounded-full bg-white-200 text-gray shadow-sm"
+						>
+							<!-- Example: Server icon -->
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke="currentColor"
+								stroke-width="2"
+								class="w-7 h-7"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									d="M4 6h16M4 12h16M4 18h16"></path>
+							</svg>
+						</span>
+					</div>
+					<!-- Title -->
+					<h3 class="font-semibold text-lg mb-2 text-black-200">
+						Offline & Mobile Infrastructure
+					</h3>
+					<p class="text-gray leading-relaxed">
+						Secure, portable VOD technology via rugged gateway
+						devices. Ideal for planes, trains, ships and remote
+						field use. DRM-secure, offline-ready and instantly
+						deployable.
+					</p>
+				</article>
+
+				<!-- Card 2 -->
+				<article
+					class="bg-white-100 border border-gray rounded-2xl p-6 text-center md:text-start shadow-sm md:shadow-md"
+				>
+					<div class="flex justify-center md:justify-start mb-4">
+						<span
+							class="flex items-center justify-center w-12 h-12 rounded-full bg-white-200 text-gray shadow-sm"
+						>
+							<!-- Example: Mobile icon -->
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke="currentColor"
+								stroke-width="2"
+								class="w-7 h-7"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									d="M9 2h6a2 2 0 012 2v16a2 2 0 01-2 2H9a2 2 0 01-2-2V4a2 2 0 012-2z"
+								></path>
+							</svg>
+						</span>
+					</div>
+					<h3 class="font-semibold text-lg mb-2 text-black-200">
+						Branded VOD Applications
+					</h3>
+					<p class="text-gray leading-relaxed">
+						Fully branded iOS and Android apps with offline
+						playback, monetization options and a polished user
+						experience. Ready for content owners, creators and
+						broadcasters.
+					</p>
+				</article>
+
+				<!-- Card 3 -->
+				<article
+					class="bg-white-100 border border-gray rounded-2xl p-6 text-center md:text-start shadow-sm md:shadow-md"
+				>
+					<div class="flex justify-center md:justify-start mb-4">
+						<span
+							class="flex items-center justify-center w-12 h-12 rounded-full bg-white-200 text-gray shadow-sm"
+						>
+							<!-- Example: Play icon -->
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke="currentColor"
+								stroke-width="2"
+								class="w-7 h-7"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									d="M14.752 11.168l-5.197-3.027A1 1 0 008 9.027v5.946a1 1 0 001.555.832l5.197-3.027a1 1 0 000-1.664z"
+								></path>
+							</svg>
+						</span>
+					</div>
+					<h3 class="font-semibold text-lg mb-2 text-black-200">
+						Ready-to-Launch Streaming Platform
+					</h3>
+					<p class="text-gray leading-relaxed">
+						Launch in days, not months. Our white-label web-based
+						VOD solution is customizable, monetization-ready and
+						built to scale with your audience.
+					</p>
+				</article>
+
+				<!-- Card 4 -->
+				<article
+					class="bg-white-100 border border-gray rounded-2xl p-6 text-center md:text-start shadow-sm md:shadow-md"
+				>
+					<div class="flex justify-center md:justify-start mb-4">
+						<span
+							class="flex items-center justify-center w-12 h-12 rounded-full bg-white-200 text-gray shadow-sm"
+						>
+							<!-- Example: Puzzle/Settings icon -->
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke="currentColor"
+								stroke-width="2"
+								class="w-7 h-7"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									d="M12 4v1m6.364 1.636l-.707.707M20 12h-1m-1.636 6.364l-.707-.707M12 20v-1m-6.364-1.636l.707-.707M4 12h1m1.636-6.364l.707.707"
+								></path>
+							</svg>
+						</span>
+					</div>
+					<h3 class="font-semibold text-lg mb-2 text-black-200">
+						Custom Enterprise Solutions
+					</h3>
+					<p class="text-gray leading-relaxed">
+						When standard tools are not enough, we design and
+						deliver tailored platforms that match your workflows,
+						business models and long-term strategy.
+					</p>
+				</article>
+			</div>
+		</div>
+	</section>
+
+	<section class="py-14 md:py-20 container">
+	<!-- Header + subtext -->
+	<h2 class="text-3xl font-bold text-center">{services.header}</h2>
+	<p class="mt-3 text-lg text-center text-gray-600">{services.subText}</p>
+
+	<!-- 3-column grid -->
+	<div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+		{
+			services.items.map((item) => (
+				<div class="p-6 rounded-2xl shadow-md border border-gray bg-white">
+					<!-- Icon -->
+					<div class="flex justify-center mb-4">
+						<span class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-white-200 text-black-200">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke="currentColor"
+								stroke-width="2"
+								class="h-6 w-6"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									d={item.icon}
+								/>
+							</svg>
+						</span>
+					</div>
+
+					<h3 class="text-xl font-semibold mb-2 text-center">
+						{item.title}
+					</h3>
+					<p class="text-gray-600 text-base leading-relaxed text-center">
+						{item.description}
+					</p>
+				</div>
+			))
+		}
+	</div>
+
+	
+
+	
+</section>
+<div class="bg-white-200 shadow-sm md:shadow-md">
+	<!-- Industries -->
+  <SolutionSplitSection
+    title="Industries we serve"
+    body={`<p class="text-lg text-gray-600">Trusted across the world’s most demanding sectors</p>
+    <p class="mt-4">Defense & Government • Hospitals & Care Facilities • Maritime • Air Carriers • Education • Public Transport</p>
+    `}
+    image={industriesImg}
+  />
+</div>
+
+
+  <!-- About AION -->
+  <SolutionSplitSection
+    title="About AION Media Group"
+    body={`<p class="text-lg text-gray-600">Based in Haarlem. Delivering worldwide.</p>
+    <p class="mt-4">With team members who bring over 20 years of experience in DRM and video technology, AION Media Group builds secure, scalable platforms that deliver media where others cannot. We believe in partnerships and long-term collaboration to drive sustainable growth.</p>
+    `}
+    image={aboutImg}
+    reverse
+  />
+<div class="bg-white-200 shadow-sm md:shadow-md">
+  <!-- Cases & Partnerships -->
+  <SolutionSplitSection
+    title="Cases & Partnerships"
+    body={`<p class="text-lg text-gray-600">Proven in the field</p>
+    <p class="mt-4">From Filmservice to AirFi and NBD Biblion, our solutions power secure media delivery for leading organizations. And through partnerships with resellers, integrators and strategic collaborators, we scale these solutions globally.</p>
+    `}
+    image={casesImg}
+  />
+</div>
+
+                <div id="contact"></div>
+<CtaSection header="Where connectivity ends, AION begins" subText="Let’s discuss how we can deliver secure, scalable video solutions for your organization." />
+
 </Layout>

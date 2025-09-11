@@ -13,7 +13,7 @@ const { heroData } = Astro.props;
         >
             <!-- LEFT: TEXT CONTENT -->
             <div
-                class="max-w-xl md:max-w-sm lg:max-w-xl text-center md:text-left z-20 flex flex-col justify-center h-full"
+                class="max-w-md md:max-w-sm lg:max-w-lg xl:max-w-2xl text-center md:text-left z-20 flex flex-col justify-center h-full"
             >
                 <h3
                     class="text-gray uppercase font-semibold tracking-widest text-sm sm:text-base lg:text-lg mb-4"
@@ -34,14 +34,14 @@ const { heroData } = Astro.props;
                 </h2>
 
                 <p
-                    class="text-gray leading-relaxed max-w-lg mx-auto md:mx-0 text-base lg:text-lg"
+                    class="text-gray leading-relaxed mx-auto md:mx-0 text-base lg:text-lg"
                     set:html={heroData.subText}
                 />
             </div>
 
             <!-- RIGHT: HERO IMAGE + WAVY LINES -->
             <div
-                class="relative flex justify-center md:justify-end md:items-center w-full h-full sm:w-12/20 md:w-1/2 z-10"
+                class="relative flex justify-center md:justify-end md:items-center w-full h-full sm:max-w-4/5 xl:max-w-[36rem] z-10"
             >
                 <!-- Decorative Background -->
                 <img
@@ -56,7 +56,7 @@ const { heroData } = Astro.props;
                     src={heroImgSolutions.src}
                     alt="Illustration of Titan Lighthouse cloud licensing platform"
                     loading="lazy"
-                    class="z-20 object-contain drop-shadow-2xl"
+                    class="z-20 object-contain drop-shadow-2xl max-h-[20rem] md:max-h-[24rem] lg:max-h-[28rem] xl:max-h-[32rem]"
                 />
             </div>
         </div>
