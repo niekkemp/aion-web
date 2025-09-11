@@ -8,7 +8,7 @@
     --font-primary: "Open Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
         Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
         "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    
+
     /* Media group colors */
     --color-black-100: #000000;
     --color-black-200: #090C02;
@@ -17,40 +17,46 @@
     --color-gray: #333232;
 
     /* Blue family */
-    --color-blue-100: #C3DBFE; /* Uranian Blue */
-    --color-blue-200: #5EA0FD; /* Cornflower */
-    --color-blue-300: #0467F1; /* Royal Blue */
-    --color-blue-400: #023379; /* Yale Blue */
+    --color-blue-100: #C3DBFE;
+    /* Uranian Blue */
+    --color-blue-200: #5EA0FD;
+    /* Cornflower */
+    --color-blue-300: #0467F1;
+    /* Royal Blue */
+    --color-blue-400: #023379;
+    /* Yale Blue */
 
     /* Red / Pink family */
-    --color-red-100: #F4B8C4; /* Soft Pink */
-    --color-red-200: #EC8398; /* Rose Pompadour */
-    --color-red-300: #E54F6D; /* Blush */
-    --color-red-400: #A01833; /* Madder */
+    --color-red-100: #F4B8C4;
+    /* Soft Pink */
+    --color-red-200: #EC8398;
+    /* Rose Pompadour */
+    --color-red-300: #E54F6D;
+    /* Blush */
+    --color-red-400: #A01833;
+    /* Madder */
 
     /* Green / Teal family */
-    --color-green-100: #C3E9E2; /* Mint */
-    --color-green-200: #87D4C4; /* Deep Celeste */
-    --color-green-300: #44BBA4; /* Keppel */
-    --color-green-400: #2B7869; /* Pine */
+    --color-green-100: #C3E9E2;
+    /* Mint */
+    --color-green-200: #87D4C4;
+    /* Deep Celeste */
+    --color-green-300: #44BBA4;
+    /* Keppel */
+    --color-green-400: #2B7869;
+    /* Pine */
 }
 
 /* Container */
 
 @utility container {
-  @apply mx-auto
-         px-4
-         sm:px-6
-         md:px-8
-         lg:px-12
-         xl:px-16
-         2xl:px-20;
+    @apply mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20;
 }
 
 /* Buttons */
 
 @utility btn {
-    @apply cursor-pointer py-1 px-4 rounded-full border-2 border-solid transition text-center hover:shadow-md
+    @apply cursor-pointer py-1 px-6 rounded-full border-2 border-solid transition text-center hover:shadow-sm md:hover:shadow-md
 }
 
 @utility btn-primary {
@@ -66,4 +72,13 @@
 /* Static Nav Links */
 @utility nav-link {
     @apply hover:text-gray-600 transition-colors;
+}
+
+/* Shapes */
+.clip-triangle {
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.clip-slab {
+    clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
 }

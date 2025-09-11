@@ -1,5 +1,5 @@
 ---
-import navLogo from "../assets/Aion-Media-Group-Logo-Full.png";
+import navLogo from "../../assets/Aion-Media-Group-Logo-Full.png";
 import NavItemDesktop from "./NavItemDesktop.astro";
 import NavItemMobile from "./NavItemMobile.astro";
 
@@ -8,7 +8,7 @@ const navItems = [
 		label: "Solutions",
 		href: "#", // Header itself is a link
 		dropdown: [
-			{ label: "Titan Lighthouse", href: "#" },
+			{ label: "Titan Lighthouse", href: "/titan-lighthouse" },
 			{ label: "DRM & Content Protection", href: "#" },
 			{ label: "Hardware Solutions", href: "#" },
 			{ label: "VOD Applications", href: "#" },
@@ -39,7 +39,7 @@ const navButtons = [
 ---
 
 <!-- Navbar -->
-<nav class="fixed top-0 w-full bg-white-100 shadow-md">
+<nav class="fixed top-0 w-full bg-white-100 shadow-md z-50">
 	<div class="container flex items-center justify-between py-3">
 		<!-- Logo -->
 		<a href="/" class="flex-shrink-0">
@@ -136,15 +136,16 @@ const navButtons = [
 		const panel = document.querySelector("#mobile-panel");
 
 		const collapseAllDropdowns = () => {
-			document.querySelectorAll("[id^='dropdown-menu-']").forEach((m) => {
-				m.style.maxHeight = "0px";
-				const icon = document
-					.querySelector(
-						`#${m.id.replace("dropdown-menu", "dropdown-toggle")}`,
-					)
-					?.querySelector("svg");
-				icon?.classList.remove("rotate-180");
-			});
+			document
+				.querySelectorAll("[id^='dropdown-menu-']")
+				.forEach((menu) => {
+					menu.style.maxHeight = "0px";
+					const idx = menu.id.replace("dropdown-menu-", "");
+					const icon = document.querySelector(
+						`#dropdown-icon-${idx}`,
+					);
+					icon?.classList.remove("rotate-180");
+				});
 		};
 
 		if (menuBtn && panel) {
@@ -154,30 +155,32 @@ const navButtons = [
 
 			const closeMenu = () => {
 				panel.classList.replace("translate-x-0", "translate-x-full");
-				collapseAllDropdowns(); // 🔹 Collapse dropdowns when closing menu
+				collapseAllDropdowns();
 			};
 
 			menuBtn.addEventListener("click", openMenu);
 			closeBtn?.addEventListener("click", closeMenu);
 		}
 
-		// MOBILE NAV DROPDOWNS (ACCORDION)
-		const toggles = document.querySelectorAll("[id^='dropdown-toggle-']");
-		toggles.forEach((toggle) => {
-			const menu = document.querySelector(
-				`#${toggle.id.replace("dropdown-toggle", "dropdown-menu")}`,
-			);
-			const icon = toggle.querySelector("svg");
+		// MOBILE NAV DROPDOWNS
+		const headers = document.querySelectorAll("[id^='dropdown-header-']");
+		headers.forEach((header) => {
+			const idx = header.id.replace("dropdown-header-", "");
+			const menu = document.querySelector(`#dropdown-menu-${idx}`);
+			const icon = document.querySelector(`#dropdown-icon-${idx}`);
 			if (!menu || !icon) return;
 
-			toggle.addEventListener("click", () => {
+			header.addEventListener("click", (e) => {
+				// If the user clicked the actual <a> link, don't toggle
+				if (e.target.tagName.toLowerCase() === "a") return;
+
 				const isOpen =
 					menu.style.maxHeight && menu.style.maxHeight !== "0px";
 
 				// Close all dropdowns first
 				collapseAllDropdowns();
 
-				// Then open clicked dropdown if it wasn't already open
+				// Then open this one if it wasn't already open
 				if (!isOpen) {
 					menu.style.maxHeight = `${menu.scrollHeight}px`;
 					icon.classList.add("rotate-180");
