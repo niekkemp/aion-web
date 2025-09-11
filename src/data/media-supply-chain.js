@@ -32,7 +32,6 @@ export const sections1 = [
                From ingest and preparation to packaging and archiving, every stage is automated and monitored. Our <strong>powerful CMS</strong> sits at the core, enabling you to manage licensing, subscriptions, scheduling, content visibility, and analytics from a single interface.<br><br>
                The result: <strong>full visibility, fewer errors, and faster delivery</strong>.`,
         image: vodAppsCustom,
-        cta: "Talk to an Expert",
     },
 ];
 

@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 const { title, body, image, reverse = false } = Astro.props;
 ---
 
-<section class="py-10 md:py-14">
+<section class="py-10 md:py-14 text-center lg:text-start">
     <div class="container grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <!-- Text Column -->
         <div class={`space-y-6 ${reverse ? "lg:order-2" : ""}`}>
@@ -22,7 +22,7 @@ const { title, body, image, reverse = false } = Astro.props;
                 <Image
                     src={image}
                     alt={title}
-                    class="w-full h-full object-cover object-center grayscale"
+                    class="w-full h-full object-cover object-center"
                     widths={[480, 768, 1024, 1440]}
                     sizes="(max-width: 768px) 100vw, 50vw"
                     format="webp"
@@ -31,7 +31,7 @@ const { title, body, image, reverse = false } = Astro.props;
                 />
                 <!-- Gradient Overlay -->
                 <div
-                    class="absolute inset-0 bg-gradient-to-tr from-blue-100/30 to-blue-300/30"
+                    class="absolute inset-0 bg-gradient-to-tr from-black-200/40 via-black-200/20 to-gray/50"
                 >
                 </div>
             </div>

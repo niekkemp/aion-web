@@ -1,0 +1,38 @@
+---
+import Layout from "../layouts/Layout.astro";
+import IndustryHero from "./IndustryHero.astro";
+import SolutionSplitSection from "./SolutionSplitSection.astro";
+import IndustryDetailsSection from "./IndustryDetailsSection.astro";
+import CtaSection from "./CtaSection.astro";
+
+import ValueImg from "../assets/business-value-bg.jpg";
+
+const { industryHero, industryMain, industryInfo, title } = Astro.props;
+---
+
+<Layout title={title}>
+    <!-- Hero Section -->
+    <IndustryHero {...industryHero} />
+
+    <!-- Main Intro Section -->
+    <SolutionSplitSection {...industryMain} />
+
+    <!-- Challenge / Solution / Value -->
+    <IndustryDetailsSection {...industryInfo} />
+
+    <!-- Shared Business Value Section -->
+    <SolutionSplitSection
+        title="The Business Value Across Industries"
+        body="Across all sectors, AION Media Group empowers organizations to deliver video where others cannot. Our platforms combine DRM, offline-first infrastructure, analytics, and hardware into one solution that adapts to each environment."
+        image={ValueImg}
+        reverse="true"
+    />
+
+    <!-- Shared CTA Section -->
+    <div class="bg-white-200">
+        <CtaSection
+            header="Power Your Media Delivery with AION"
+            subText="AION enables secure, reliable, and seamless video delivery — anywhere. From defense bases to hospitals, airlines to maritime fleets, and public transport to education platforms, our solutions are built to perform even where connectivity ends. Get in touch today to schedule a personalized demo and discover how AION powers media delivery across industries."
+        />
+    </div>
+</Layout>

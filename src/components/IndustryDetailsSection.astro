@@ -1,0 +1,97 @@
+---
+const { challenge, solution, value } = Astro.props;
+---
+
+<section class="bg-white-200 py-16 md:py-20 shadow-sm md:shadow-md">
+    <div class="container">
+        <!-- Title -->
+        <div class="max-w-2xl mb-12 text-center mx-auto">
+            <h2 class="text-blue-400 text-2xl sm:text-3xl font-bold">
+                Key Insights
+            </h2>
+            <p class="text-gray mt-3 text-base sm:text-lg leading-relaxed">
+                Understanding the challenges, our solutions, and the value we
+                deliver.
+            </p>
+        </div>
+
+        <!-- Flow Wrapper -->
+        <div
+            class="relative grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch"
+        >
+            <!-- Horizontal Connector Line (Desktop) -->
+            <div
+                class="hidden lg:block absolute top-12 left-[10%] w-[80%] h-1 bg-blue-100 z-0"
+                aria-hidden="true"
+            >
+            </div>
+
+            <!-- Vertical Connector Line (Mobile / Tablet) -->
+            <div
+                class="lg:hidden absolute top-8 left-1/2 transform -translate-x-1/2 w-1 h-[calc(100%-4rem)] bg-blue-100"
+                aria-hidden="true"
+            >
+            </div>
+
+            <!-- STEP 1: CHALLENGE -->
+            <div
+                class="relative bg-white-100 border border-blue-100 rounded-2xl p-6 text-center md:text-start shadow-sm md:shadow-md flex flex-col justify-start lg:min-h-[22rem]"
+            >
+                <!-- Icon / Step Number -->
+                <div
+                    class="flex justify-center md:justify-start mb-4 relative z-10"
+                >
+                    <span
+                        class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-100 text-blue-400 shadow-sm font-bold text-lg"
+                    >
+                        1
+                    </span>
+                </div>
+                <!-- Title -->
+                <h3 class="text-blue-400 font-semibold text-lg mb-2">
+                    The Challenge
+                </h3>
+                <!-- Description -->
+                <p class="text-gray leading-relaxed flex-grow">{challenge}</p>
+            </div>
+
+            <!-- STEP 2: SOLUTION -->
+            <div
+                class="relative bg-white-100 border border-blue-100 rounded-2xl p-6 text-center md:text-start shadow-sm md:shadow-md flex flex-col justify-start lg:min-h-[22rem]"
+            >
+                <div
+                    class="flex justify-center md:justify-start mb-4 relative z-10"
+                >
+                    <span
+                        class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-100 text-blue-400 shadow-sm font-bold text-lg"
+                    >
+                        2
+                    </span>
+                </div>
+                <h3 class="text-blue-400 font-semibold text-lg mb-2">
+                    Our Solution
+                </h3>
+                <p class="text-gray leading-relaxed flex-grow">{solution}</p>
+            </div>
+
+            <!-- STEP 3: VALUE -->
+            <div
+                class="relative bg-white-100 border border-blue-100 rounded-2xl p-6 text-center md:text-start shadow-sm md:shadow-md flex flex-col justify-start lg:min-h-[22rem]"
+            >
+                <div
+                    class="flex justify-center md:justify-start mb-4 relative z-10"
+                >
+                    <span
+                        class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-100 text-blue-400 shadow-sm font-bold text-lg"
+                    >
+                        3
+                    </span>
+                </div>
+                <h3 class="text-blue-400 font-semibold text-lg mb-2">
+                    The Value
+                </h3>
+                <p class="text-gray leading-relaxed flex-grow">{value}</p>
+            </div>
+        </div>
+    </div>
+</section>
