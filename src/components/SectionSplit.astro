@@ -1,0 +1,119 @@
+---
+import { Image } from "astro:assets";
+
+import SectionContainer from "./SectionContainer.astro";
+
+const {
+    header,
+    text,
+    image,
+    reverse = false,
+    theme = "bw",
+    bg = false,
+    ctaHref = false,
+    ctaText = false,
+} = Astro.props;
+
+const themes = {
+    blue: {
+        header: "text-blue-400",
+        overlay: "from-blue-100/20 via-blue-200/15 to-blue-300/10",
+    },
+    green: {
+        header: "text-green-400",
+        overlay: "from-green-100/20 via-green-200/15 to-green-300/10",
+    },
+    red: {
+        header: "text-red-400",
+        overlay: "from-red-100/20 via-red-200/15 to-red-300/10",
+    },
+    bw: {
+        header: "text-black-200",
+        overlay: "from-blue-300/20 via-red-100/20 to-green-300/20",
+    },
+};
+
+const colors = themes[theme] ?? themes.bw;
+---
+
+<SectionContainer bg={bg}>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-12 items-center">
+        <!-- Image Column -->
+        <div
+            class={`relative flex justify-center md:block ${
+                reverse ? "md:order-2 lg:order-1" : "md:order-1 lg:order-2"
+            }`}
+        >
+            <div
+                class="relative
+               max-w-[380px] md:max-w-[440px] lg:max-w-none w-full
+               aspect-[16/9] md:aspect-[3/4] lg:aspect-[16/9]
+               overflow-hidden rounded-2xl shadow-lg"
+            >
+                <Image
+                    src={image}
+                    alt={header}
+                    class="w-full h-full object-cover object-center grayscale-75"
+                    widths={[480, 768, 1024, 1440]}
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    format="webp"
+                    loading="lazy"
+                    decoding="async"
+                />
+                <!-- Gradient Overlay -->
+                <div
+                    class={`absolute inset-0 bg-gradient-to-tr ${colors.overlay}`}
+                >
+                </div>
+            </div>
+        </div>
+
+        <!-- Text Column -->
+        <div
+            class={`space-y-5 md:space-y-6 text-center md:text-left lg:text-start ${
+                reverse ? "md:order-1 lg:order-2" : "md:order-2 lg:order-1"
+            }`}
+        >
+            <h2
+                class={`text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold ${colors.header}`}
+            >
+                {header}
+            </h2>
+            <p
+                class="text-gray leading-relaxed max-w-prose mx-auto md:mx-0"
+                set:html={text}
+            />
+            {
+                Array.isArray(ctaHref) &&
+                Array.isArray(ctaText) &&
+                ctaHref.length === ctaText.length ? (
+                    <div class="flex flex-wrap gap-3 justify-center md:justify-start">
+                        {ctaHref.map(
+                            (href, i) =>
+                                typeof href === "string" &&
+                                href.trim() !== "" &&
+                                typeof ctaText[i] === "string" &&
+                                ctaText[i].trim() !== "" && (
+                                    <a class="btn-secondary" href={href}>
+                                        {ctaText[i]}
+                                    </a>
+                                ),
+                        )}
+                    </div>
+                ) : (
+                    typeof ctaHref === "string" &&
+                    ctaHref.trim() !== "" &&
+                    typeof ctaText === "string" &&
+                    ctaText.trim() !== "" && (
+                        <a
+                            class="block mx-auto md:mx-0 w-fit btn-secondary"
+                            href={ctaHref}
+                        >
+                            {ctaText}
+                        </a>
+                    )
+                )
+            }
+        </div>
+    </div>
+</SectionContainer>

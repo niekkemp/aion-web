@@ -12,8 +12,8 @@ export const industryHero = {
 };
 
 export const industryMain = {
-    title: "Inflight entertainment without streaming limits",
-    body: `Passengers expect inflight entertainment that rivals their home experience. 
+    header: "Inflight entertainment without streaming limits",
+    text: `Passengers expect inflight entertainment that rivals their home experience. 
          Airlines must balance content licensing requirements, bandwidth limits and the complexity of managing fleets.`,
     image: SupportImg,
 };

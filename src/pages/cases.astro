@@ -5,10 +5,11 @@ import IndustryHero from "../components/IndustryHero.astro";
 import CtaSection from "../components/CtaSection.astro";
 import CasesSplitSection from "../components/CasesSplitSection.astro";
 
-// logos
 import filmserviceLogo from "../assets/brand-filmservice.png";
 import airfiLogo from "../assets/brand-airfi.png";
 import nbdbLogo from "../assets/brand-nbdb.png";
+
+import SectionHeadingCenteredSection from "../components/SectionHeadingCenteredSection.astro";
 ---
 
 <Layout title="Cases">
@@ -44,21 +45,10 @@ import nbdbLogo from "../assets/brand-nbdb.png";
     />
 
     <!-- Business Value -->
-    <section class="bg-white-200 py-10 md:py-14 shadow-sm md:shadow-md">
-        <div class="container text-center max-w-3xl">
-            <h2 class="text-blue-400 text-2xl sm:text-3xl font-bold">
-                The business value
-            </h2>
-            <p class="text-gray mt-3 text-base sm:text-lg leading-relaxed">
-                These partnerships show how AION Media Group adapts to different
-                industries while delivering the same core strengths: secure DRM,
-                offline-first infrastructures, scalable workflows and actionable
-                analytics. From commercial entertainment to education and
-                cultural services, we help organizations transform the way they
-                deliver media.
-            </p>
-        </div>
-    </section>
+    <SectionHeadingCenteredSection
+        header="The business value"
+        subText="These partnerships show how AION Media Group adapts to different industries while delivering the same core strengths: secure DRM, offline-first infrastructures, scalable workflows and actionable analytics. From commercial entertainment to education and cultural services, we help organizations transform the way they deliver media."
+    />
 
     <!-- CTA -->
     <CtaSection

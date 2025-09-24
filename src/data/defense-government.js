@@ -11,8 +11,8 @@ export const industryHero = {
 };
 
 export const industryMain = {
-    title: "Secure media in the most restricted environments",
-    body: `Defense organizations and government agencies require absolute control over their media workflows. Training content, mission-critical information and communication tools must be delivered securely, often in closed networks or offline environments.`,
+    header: "Secure media in the most restricted environments",
+    text: `Defense organizations and government agencies require absolute control over their media workflows. Training content, mission-critical information and communication tools must be delivered securely, often in closed networks or offline environments.`,
     image: SupportImg,
 };
 

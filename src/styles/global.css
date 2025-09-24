@@ -82,13 +82,3 @@
 .clip-slab {
     clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
 }
-
-@keyframes spin-slow {
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-@utility animate-spin-slow {
-    animation: spin-slow 50s linear infinite;
-}

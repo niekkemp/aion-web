@@ -3,12 +3,14 @@ import Layout from "../../layouts/Layout.astro";
 import SolutionFeaturesSection from "../../components/SolutionFeaturesSection.astro";
 import SolutionsHero from "../../components/SolutionsHero.astro";
 import CtaSection from "../../components/CtaSection.astro";
+import CardCircledIconSection from "../../components/CardCircledIconSection.astro";
 
 import { heroData, features } from "../../data/titan-lighthouse.js";
+const theme = "blue";
 ---
 
 <Layout title="Titan Lighthouse">
-    <SolutionsHero heroData={heroData} />
+    <SolutionsHero heroData={heroData} theme={theme} />
 
     <!-- Announcement block -->
     <section class="py-10 md:py-14" role="alert">
@@ -72,14 +74,16 @@ import { heroData, features } from "../../data/titan-lighthouse.js";
     </section>
 
     <!-- Features Section -->
-    <SolutionFeaturesSection
+    <CardCircledIconSection
+        theme={theme}
         header="Why Choose Titan Lighthouse"
         subText="A future-proof replacement for Widevine CLS — built for continuity, scale, and compliance."
-        features={features}
+        cardDetails={features}
     />
 
     <CtaSection
         header="Future Ready Licensing Starts Here"
         subText="Titan Lighthouse makes migrating away from Widevine CLS effortless and secure. Get in touch today and we can arrange a personalized demo if you would like to see it in action."
+        theme={theme}
     />
 </Layout>

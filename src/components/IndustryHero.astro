@@ -17,7 +17,7 @@ const { title, tagline, intro, image } = Astro.props;
                     <Image
                         src={image}
                         alt={title}
-                        class="absolute inset-0 w-full h-full object-cover object-center"
+                        class="absolute inset-0 w-full h-full object-cover object-center grayscale-75 brightness-25"
                         widths={[640, 1024, 1440, 1920]}
                         sizes="100vw"
                         format="webp"
@@ -27,9 +27,9 @@ const { title, tagline, intro, image } = Astro.props;
                 )
             }
 
-            <!-- Stronger Overlay Gradient -->
+            <!-- Color Overlay Gradient -->
             <div
-                class="absolute inset-0 bg-gradient-to-tr from-black-200/80 via-gray/80 to-black-200/80"
+                class="absolute inset-0 bg-gradient-to-tr from-blue-200/30 via-red-200/20 to-green-200/30"
             >
             </div>
 
@@ -48,7 +48,7 @@ const { title, tagline, intro, image } = Astro.props;
                     <!-- Tagline -->
                     {
                         tagline && (
-                            <h2 class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium leading-snug mb-4">
+                            <h2 class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium leading-snug mb-4 drop-shadow-lg">
                                 {tagline}
                             </h2>
                         )
@@ -57,7 +57,7 @@ const { title, tagline, intro, image } = Astro.props;
                     <!-- Intro Paragraph -->
                     {
                         intro && (
-                            <p class="text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl">
+                            <p class="text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl drop-shadow-lg">
                                 {intro}
                             </p>
                         )

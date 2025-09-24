@@ -16,8 +16,8 @@ export const heroData = {
 
 export const sections1 = [
     {
-        title: "Reliable Media Delivery in Every Environment",
-        body: `Content doesn’t stop where connectivity does. From airplanes in the sky to ships at sea, from hospitals to defense bases, 
+        header: "Reliable Media Delivery in Every Environment",
+        text: `Content doesn’t stop where connectivity does. From airplanes in the sky to ships at sea, from hospitals to defense bases, 
                audiences expect uninterrupted access to video.<br><br>
                <span class="font-semibold">AION Hardware</span> provides the backbone for secure, reliable playback and provisioning 
                in the most demanding conditions. Our portfolio covers portable servers, gateways, set-top boxes, and ruggedized systems — 
@@ -25,8 +25,8 @@ export const sections1 = [
         image: hardwareReliable,
     },
     {
-        title: "The Challenge: Media Under Tough Conditions",
-        body: `Delivering video outside of high-speed networks introduces unique challenges. Aircraft and vessels operate for long 
+        header: "The Challenge: Media Under Tough Conditions",
+        text: `Delivering video outside of high-speed networks introduces unique challenges. Aircraft and vessels operate for long 
                periods without connectivity. Hospitals and government facilities often run on restricted or closed networks. 
                Public transport systems require lightweight, scalable devices that can handle fluctuating demand.<br><br>
                Conventional consumer hardware cannot cope with these requirements, resulting in:<br>
@@ -37,118 +37,124 @@ export const sections1 = [
                </ul>`,
         image: hardwareChallenge,
         reverse: true,
+        bg: true,
     },
     {
-        title: "Purpose-Built Hardware for Secure Media",
-        body: `<span class="font-semibold">AION</span> develops and delivers hardware designed for 
+        header: "Purpose-Built Hardware for Secure Media",
+        text: `<span class="font-semibold">AION</span> develops and delivers hardware designed for 
                <strong>zero-connectivity</strong> and <strong>hybrid environments</strong>. 
                From portable media servers to enterprise gateways, our devices guarantee smooth playback, optimized storage, 
                and airtight content security.<br><br>
                Every system integrates seamlessly with the <span class="font-semibold">AION software stack</span>, 
                ensuring compliance with Hollywood-grade DRM and efficient workflows from ingest to playback.`,
         image: hardwareSolution,
-        cta: "Talk to an Expert",
     },
 ];
 
 
 export const features = [
     {
-        title: "Portable Media Servers",
-        description:
+        header: "Portable Media Servers",
+        text:
             "Compact, high-performance units capable of storing large content libraries and delivering playback to hundreds of passenger devices simultaneously.",
-        icon: `
-        <rect x="3" y="7" width="18" height="10" rx="2" ry="2" />
-        <path d="M3 7l9 5 9-5" />
-        <path d="M7 15h10" />
-        `,
+        icon: [
+            "M3 7h18v10H3z", // rectangle (approx rx=2 not shown)
+            "M3 7l9 5 9-5",
+            "M7 15h10",
+        ],
     },
     {
-        title: "Set-Top Boxes & Gateways",
-        description:
+        header: "Set-Top Boxes & Gateways",
+        text:
             "Bring secure VOD, live channels, and offline libraries to any screen. Optimized for aviation, maritime, and hospitality deployments.",
-        icon: `
-        <rect x="2" y="7" width="20" height="10" rx="2" ry="2" />
-        <circle cx="12" cy="12" r="1.5" />
-        <path d="M16 16h2M6 16h2" />
-        `,
+        icon: [
+            "M2 7h20v10H2z", // rectangle
+            "M12 10.5a1.5 1.5 0 1 0 0 3a1.5 1.5 0 1 0 0-3z", // circle r=1.5
+            "M16 16h2M6 16h2",
+        ],
     },
     {
-        title: "Ruggedized & Industrial-Grade Systems",
-        description:
+        header: "Ruggedized & Industrial-Grade Systems",
+        text:
             "Engineered to withstand extreme environments. Proven reliability in defense, maritime, and other demanding deployments.",
-        icon: `
-        <rect x="3" y="3" width="18" height="18" rx="3" ry="3" />
-        <path d="M7 7h10v10H7V7z" />
-        <path d="M10 10h4v4h-4v-4z" />
-        `,
+        icon: [
+            "M3 3h18v18H3z", // rectangle
+            "M7 7h10v10H7z", // inner square
+            "M10 10h4v4h-4z", // smaller square
+        ],
     },
     {
-        title: "Edge Processing & AI-Ready Devices",
-        description:
+        header: "Edge Processing & AI-Ready Devices",
+        text:
             "Perform on-site encoding, caching, and analytics to reduce latency, optimize performance, and minimize reliance on central infrastructure.",
-        icon: `
-        <circle cx="12" cy="12" r="10" />
-        <path d="M12 6v6l4 2" />
-        `,
+        icon: [
+            "M12 2a10 10 0 1 0 0 20a10 10 0 1 0 0-20z", // circle r=10
+            "M12 6v6l4 2",
+        ],
     },
     {
-        title: "Custom Hardware Design",
-        description:
+        header: "Custom Hardware Design",
+        text:
             "Tailor-made solutions for integrators and resellers, with specifications, form factors, and storage optimized for unique operational needs.",
-        icon: `
-        <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-        <path d="M7 7h10v10H7V7z" />
-        <path d="M10 10h4v4h-4v-4z" />
-        `,
+        icon: [
+            "M3 3h18v18H3z", // rectangle
+            "M7 7h10v10H7z", // inner square
+            "M10 10h4v4h-4z", // smaller square
+        ],
     },
 ];
 
 
+
 export const useCases = [
     {
-        title: "Defense & Government",
-        icon: "🛡",
-        description:
+        header: "Defense & Government",
+        emoji: "🛡",
+        text:
             "Ruggedized servers deliver secure training and communication media in remote or hostile environments.",
+        link: "/industries/defense-government"
     },
     {
-        title: "Air Carriers",
-        icon: "✈",
-        description:
+        header: "Air Carriers",
+        emoji: "✈",
+        text:
             "Deploy portable onboard servers to deliver Hollywood films and TV shows without relying on inflight connectivity.",
+        link: "/industries/air-carriers"
     },
     {
-        title: "Hospitals & Care Facilities",
-        icon: "🏥",
-        description:
+        header: "Hospitals & Care Facilities",
+        emoji: "🏥",
+        text:
             "Use set-top boxes and gateways to provide secure entertainment and training libraries for patients and staff.",
+        link: "/industries/hospitals-care-facilities"
     },
     {
-        title: "Maritime Operators",
-        icon: "🚢",
-        description:
+        header: "Maritime Operators",
+        emoji: "🚢",
+        text:
             "Equip ships with media servers that synchronize content in port and deliver seamless playback at sea.",
+        link: "/industries/maritime"
     },
     {
-        title: "Public Transport",
-        icon: "🚌",
-        description:
+        header: "Public Transport",
+        emoji: "🚌",
+        text:
             "Deploy lightweight, low-maintenance solutions to offer secure onboard entertainment across buses and trains.",
+        link: "/industries/public-transport"
     },
 ];
 
 export const sections2 = [
     {
-        title: "The Business Value",
-        body: `By choosing <span class="font-semibold">AION Hardware</span>, organizations remove the guesswork from media delivery.<br><br>
+        header: "The Business Value",
+        text: `By choosing <span class="font-semibold">AION Hardware</span>, organizations remove the guesswork from media delivery.<br><br>
                Instead of relying on repurposed consumer devices, you gain access to <strong>professional-grade systems</strong> built for scale, reliability, and compliance.<br><br>
                The result: <strong>lower total cost of ownership</strong>, improved user satisfaction, and the ability to expand services without re-engineering infrastructure.`,
         image: businessValue,
     },
     {
-        title: "Future-Proof by Design",
-        body: `<span class="font-semibold">AION</span> evolves with your needs.<br><br>
+        header: "Future-Proof by Design",
+        text: `<span class="font-semibold">AION</span> evolves with your needs.<br><br>
                From upgrading storage and performance to integrating new codecs and security standards, our systems are <strong>built to scale over time</strong>.<br><br>
                With our combined expertise in both hardware and software, we ensure your <strong>investment delivers long-term value</strong>.`,
         image: futureProof,

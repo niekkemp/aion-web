@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import IndustryHero from "./IndustryHero.astro";
-import SolutionSplitSection from "./SolutionSplitSection.astro";
+import SectionSplit from "./SectionSplit.astro";
 import IndustryDetailsSection from "./IndustryDetailsSection.astro";
 import CtaSection from "./CtaSection.astro";
 
@@ -15,15 +15,15 @@ const { industryHero, industryMain, industryInfo, title } = Astro.props;
     <IndustryHero {...industryHero} />
 
     <!-- Main Intro Section -->
-    <SolutionSplitSection {...industryMain} />
+    <SectionSplit {...industryMain} />
 
     <!-- Challenge / Solution / Value -->
     <IndustryDetailsSection {...industryInfo} />
 
     <!-- Shared Business Value Section -->
-    <SolutionSplitSection
-        title="The Business Value Across Industries"
-        body="Across all sectors, AION Media Group empowers organizations to deliver video where others cannot. Our platforms combine DRM, offline-first infrastructure, analytics, and hardware into one solution that adapts to each environment."
+    <SectionSplit
+        header="The Business Value Across Industries"
+        text="Across all sectors, AION Media Group empowers organizations to deliver video where others cannot. Our platforms combine DRM, offline-first infrastructure, analytics, and hardware into one solution that adapts to each environment."
         image={ValueImg}
         reverse="true"
     />

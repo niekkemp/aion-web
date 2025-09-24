@@ -12,8 +12,8 @@ export const industryHero = {
 };
 
 export const industryMain = {
-    title: "Learning platforms with analytics and accessibility",
-    body: `Educational institutions need video to support remote learning, blended classrooms and professional training. 
+    header: "Learning platforms with analytics and accessibility",
+    text: `Educational institutions need video to support remote learning, blended classrooms and professional training. 
          Platforms must be engaging, accessible and provide measurable results.`,
     image: SupportImg,
 };

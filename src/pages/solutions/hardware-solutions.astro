@@ -2,8 +2,8 @@
 import Layout from "../../layouts/Layout.astro";
 import SolutionFeaturesSection from "../../components/SolutionFeaturesSection.astro";
 import SolutionsHero from "../../components/SolutionsHero.astro";
-import SplitSection from "../../components/SolutionSplitSection.astro";
-import SolutionUseCasesSection from "../../components/SolutionUseCasesSection.astro";
+import SectionSplit from "../../components/SectionSplit.astro";
+import CardIndustrySection from "../../components/CardIndustrySection.astro";
 import CtaSection from "../../components/CtaSection.astro";
 
 import {
@@ -13,36 +13,43 @@ import {
     useCases,
     sections2,
 } from "../../data/hardware-solutions.js";
+
+import CardCircledIconSection from "../../components/CardCircledIconSection.astro";
+
+const theme = "green";
 ---
 
 <Layout title="Hardware Solutions">
     <!-- Hero Section -->
-    <SolutionsHero heroData={heroData} />
+    <SolutionsHero heroData={heroData} theme={theme} />
 
     <!-- 1st Content Sections -->
-    {sections1.map((s) => <SplitSection {...s} />)}
+    {sections1.map((s) => <SectionSplit {...s} theme={theme} />)}
 
     <!-- Features Section -->
-    <SolutionFeaturesSection
+    <CardCircledIconSection
+        theme={theme}
         header="Why Choose AION Hardware"
         subText="AION Hardware delivers purpose-built systems designed for demanding environments — enabling secure, reliable media playback everywhere."
-        features={features}
+        cardDetails={features}
     />
 
     <!-- Use Cases Section -->
-    <SolutionUseCasesSection
+    <CardIndustrySection
         header="Use Cases Across Industries"
         subText="AION DRM powers secure content delivery across aviation, defense, healthcare, and mobility — protecting premium libraries wherever they're delivered."
         useCases={useCases}
+        theme={theme}
     />
 
     <!-- 2nd Content Sections -->
     <div class="bg-white-200 shadow-sm md:shadow-md">
-        {sections2.map((s) => <SplitSection {...s} />)}
+        {sections2.map((s) => <SectionSplit {...s} theme={theme} />)}
     </div>
 
     <CtaSection
         header="Power Your Media Delivery with AION Hardware"
         subText="AION Hardware provides purpose-built systems for secure, reliable video playback anywhere — from aircraft and ships to hospitals, defense bases, and public transport. Get in touch today to schedule a personalized demo and discover how we enable seamless media delivery, even in the most demanding environments."
+        theme={theme}
     />
 </Layout>

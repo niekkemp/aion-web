@@ -1,0 +1,23 @@
+---
+const {
+    header,
+    subText,
+    theme = "bw",
+    bg = true,
+    ctaHref = false,
+    ctaText = false,
+} = Astro.props;
+
+import SectionHeadingCentered from "./SectionHeadingCentered.astro";
+import SectionContainer from "./SectionContainer.astro";
+---
+
+<SectionContainer bg={bg}>
+    <SectionHeadingCentered
+        header={header}
+        subText={subText}
+        theme={theme}
+        ctaHref={ctaHref}
+        ctaText={ctaText}
+    />
+</SectionContainer>

@@ -1,10 +1,35 @@
 ---
-const { header, subText } = Astro.props;
+const { header, subText, theme = "bw", bg = false } = Astro.props;
+
+import SectionHeadingCentered from "./SectionHeadingCentered.astro";
+import SectionContainer from "./SectionContainer.astro";
+
+const themes = {
+    blue: {
+        button: "bg-blue-300 hover:bg-blue-200 text-white-200",
+        shapes: ["bg-blue-100", "bg-blue-200", "bg-blue-300"],
+    },
+    green: {
+        button: "bg-green-300 hover:bg-green-200 text-white-200",
+        shapes: ["bg-green-100", "bg-green-200", "bg-green-300"],
+    },
+    red: {
+        button: "bg-red-300 hover:bg-red-200 text-white-200",
+        shapes: ["bg-red-100", "bg-red-200", "bg-red-300"],
+    },
+    bw: {
+        button: "bg-black-200 hover:bg-gray text-white-200",
+        shapes: ["bg-red-200", "bg-green-200", "bg-blue-200"],
+    },
+};
+
+const colors = themes[theme] ?? themes.bw;
 ---
 
-<section class="relative py-14 md:py-20 overflow-hidden">
-    <div class="container relative z-10">
-        <div class="max-w-2xl mx-auto text-center">
+<SectionContainer bg={bg}>
+    <div class="relative">
+        <!-- Foreground content -->
+        <div class="relative z-20 max-w-2xl mx-auto text-center">
             <!-- Tagline -->
             <h3
                 class="text-gray uppercase font-semibold tracking-widest text-sm sm:text-base mb-3"
@@ -13,20 +38,17 @@ const { header, subText } = Astro.props;
             </h3>
 
             <!-- Main Heading -->
-            <h2 class="text-blue-400 text-2xl sm:text-3xl font-bold mb-4">
-                {header}
-            </h2>
-
-            <!-- Supporting Text -->
-            <p class="text-gray text-base sm:text-lg leading-relaxed mb-6">
-                {subText}
-            </p>
+            <SectionHeadingCentered
+                header={header}
+                subText={subText}
+                theme={theme}
+            />
 
             <!-- CTA Button -->
-            <div>
+            <div class="mt-12">
                 <a
                     href="/contact"
-                    class="inline-block hover:shadow-sm md:hover:shadow-md bg-blue-300 hover:bg-blue-200 text-white-200 font-semibold text-base sm:text-lg rounded-lg px-6 py-3 transition-colors"
+                    class={`inline-block hover:shadow-sm md:hover:shadow-md ${colors.button} font-semibold text-base sm:text-lg rounded-lg px-6 py-3 transition-colors`}
                 >
                     Get in Touch
                 </a>
@@ -35,87 +57,84 @@ const { header, subText } = Astro.props;
                 </p>
             </div>
         </div>
-    </div>
 
-    <!-- Decorative Background Shapes -->
-    <div class="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
-        <!-- Center small highlight -->
+        <!-- Background shapes -->
         <div
-            class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
-            w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 lg:w-10 lg:h-10
-            bg-blue-100 rounded-full
-            shadow-sm md:shadow-md
-            opacity-10 sm:opacity-15 md:opacity-20 lg:opacity-30"
+            class="absolute inset-0 z-0 pointer-events-none"
+            aria-hidden="true"
         >
-        </div>
+            <!-- Center small highlight -->
+            <div
+                class={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
+                w-6 h-6 md:w-10 md:h-10
+                ${colors.shapes[0]} rounded-full
+                shadow-sm md:shadow-md
+                opacity-10 md:opacity-20`}
+            >
+            </div>
 
-        <!-- Left triangle -->
-        <div
-            class="absolute left-[8%] top-[20%]
-            w-10 h-10 sm:w-14 sm:h-14 md:w-20 md:h-20 lg:w-24 lg:h-24
-            bg-blue-200 clip-triangle
-            shadow-sm md:shadow-md lg:shadow-lg
-            opacity-15 sm:opacity-20 md:opacity-30 lg:opacity-40
-            scale-90 sm:scale-100 md:scale-110 lg:scale-125"
-        >
-        </div>
+            <!-- Left triangle -->
+            <div
+                class={`absolute left-[4%] top-[18%]
+                w-12 h-12 md:w-20 md:h-20
+                ${colors.shapes[1]} clip-triangle
+                shadow-sm md:shadow-md lg:shadow-lg
+                opacity-15 md:opacity-30`}
+            >
+            </div>
 
-        <!-- Left slab -->
-        <div
-            class="absolute left-[14%] bottom-[18%]
-            w-16 h-4 sm:w-24 sm:h-6 md:w-28 md:h-8 lg:w-36 lg:h-10
-            bg-blue-100 clip-slab
-            shadow-sm md:shadow-md
-            opacity-10 sm:opacity-15 md:opacity-25 lg:opacity-30
-            rotate-[-6deg]
-            scale-90 sm:scale-95 md:scale-100 lg:scale-110"
-        >
-        </div>
+            <!-- Left slab -->
+            <div
+                class={`absolute left-[10%] bottom-[20%]
+                w-20 h-5 md:w-32 md:h-8
+                ${colors.shapes[0]} clip-slab
+                shadow-sm
+                opacity-15 md:opacity-25
+                rotate-[-6deg]`}
+            >
+            </div>
 
-        <!-- Right triangle -->
-        <div
-            class="absolute right-[10%] top-[28%]
-            w-12 h-12 sm:w-16 sm:h-16 md:w-22 md:h-22 lg:w-28 lg:h-28
-            bg-blue-300 clip-quad
-            shadow-sm md:shadow-md lg:shadow-lg
-            opacity-15 sm:opacity-20 md:opacity-25 lg:opacity-35
-            scale-90 sm:scale-100 md:scale-120 lg:scale-150"
-        >
-        </div>
+            <!-- Right triangle -->
+            <div
+                class={`absolute right-[6%] top-[25%]
+                w-14 h-14 md:w-24 md:h-24
+                ${colors.shapes[2]} clip-quad
+                shadow-sm md:shadow-md lg:shadow-lg
+                opacity-15 md:opacity-30`}
+            >
+            </div>
 
-        <!-- Right cube -->
-        <div
-            class="absolute right-[22%] bottom-[16%]
-            w-10 h-10 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20
-            bg-blue-200 clip-triangle
-            shadow-sm md:shadow-md
-            opacity-10 sm:opacity-15 md:opacity-20 lg:opacity-25
-            rotate-[8deg]
-            scale-85 sm:scale-95 md:scale-105 lg:scale-110"
-        >
-        </div>
+            <!-- Right cube -->
+            <div
+                class={`absolute right-[18%] bottom-[20%]
+                w-12 h-12 md:w-16 md:h-16
+                ${colors.shapes[1]} clip-triangle
+                shadow-sm
+                opacity-15 md:opacity-25
+                rotate-[8deg]`}
+            >
+            </div>
 
-        <!-- Mid-field circle -->
-        <div
-            class="absolute left-[40%] top-[14%]
-            w-6 h-6 sm:w-8 sm:h-8 md:w-12 md:h-12 lg:w-16 lg:h-16
-            bg-blue-200 rounded-full
-            shadow-sm md:shadow-md
-            opacity-10 sm:opacity-15 md:opacity-20 lg:opacity-25
-            scale-75 sm:scale-85 md:scale-90 lg:scale-90"
-        >
-        </div>
+            <!-- Mid-field circle -->
+            <div
+                class={`absolute left-[44%] top-[12%]
+                w-8 h-8 md:w-12 md:h-12
+                ${colors.shapes[2]} rounded-full
+                shadow-sm
+                opacity-15 md:opacity-25`}
+            >
+            </div>
 
-        <!-- Mid-field slab -->
-        <div
-            class="absolute right-[38%] bottom-[22%]
-            w-12 h-4 sm:w-16 sm:h-5 md:w-20 md:h-6 lg:w-24 lg:h-8
-            bg-blue-100 clip-slab
-            shadow-sm md:shadow-md
-            opacity-10 sm:opacity-15 md:opacity-20 lg:opacity-25
-            rotate-[4deg]
-            scale-80 sm:scale-90 md:scale-95 lg:scale-95"
-        >
+            <!-- Mid-field slab -->
+            <div
+                class={`absolute right-[34%] bottom-[24%]
+                w-14 h-5 md:w-20 md:h-6
+                ${colors.shapes[0]} clip-slab
+                shadow-sm
+                opacity-15 md:opacity-25
+                rotate-[4deg]`}
+            >
+            </div>
         </div>
     </div>
-</section>
+</SectionContainer>

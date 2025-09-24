@@ -1,11 +1,39 @@
 ---
-import wavyLines from "../assets/wavy-lines.png";
-import heroImgSolutions from "../assets/hero-img-solutions.png";
+import wavyLinesBlue from "../assets/wavy-lines-blue.png";
+import wavyLinesRed from "../assets/wavy-lines-red.png";
+import wavyLinesGreen from "../assets/wavy-lines-green.png";
+import manMetLaptop from "../assets/man-met-laptop.png";
 
-const { heroData } = Astro.props;
+const { heroData, theme = false } = Astro.props;
+
+const themes = {
+    blue: {
+        h1: "text-blue-300",
+        h2: "text-blue-200",
+        bg: "bg-blue-100/10",
+        wavyLines: wavyLinesBlue,
+        triangleBg: "bg-blue-300/75",
+    },
+    green: {
+        h1: "text-green-300",
+        h2: "text-green-200",
+        bg: "bg-green-100/10",
+        wavyLines: wavyLinesGreen,
+        triangleBg: "bg-green-300/75",
+    },
+    red: {
+        h1: "text-red-300",
+        h2: "text-red-200",
+        bg: "bg-red-100/10",
+        wavyLines: wavyLinesRed,
+        triangleBg: "bg-red-300/75",
+    },
+};
+
+const colors = themes[theme];
 ---
 
-<header class="bg-white-200 py-16 md:py-20 lg:py-24 shadow-sm md:shadow-md">
+<header class={`${colors.bg} py-16 md:py-20 lg:py-24 shadow-sm md:shadow-md`}>
     <div class="container">
         <!-- HERO WRAPPER -->
         <div
@@ -22,13 +50,13 @@ const { heroData } = Astro.props;
                 </h3>
 
                 <h1
-                    class="text-blue-300 font-extrabold leading-tight text-3xl sm:text-4xl md:text-3xl lg:text-4xl xl:text-5xl mb-3"
+                    class={`${colors.h1} font-extrabold leading-tight text-3xl sm:text-4xl md:text-3xl lg:text-4xl xl:text-5xl mb-3`}
                 >
                     {heroData.header}
                 </h1>
 
                 <h2
-                    class="text-blue-200 font-medium leading-snug text-lg sm:text-xl md:text-xl lg:text-2xl xl:text-3xl mb-5"
+                    class={`${colors.h2} font-medium leading-snug text-lg sm:text-xl md:text-xl lg:text-2xl xl:text-3xl mb-5`}
                 >
                     {heroData.subHeader}
                 </h2>
@@ -45,19 +73,29 @@ const { heroData } = Astro.props;
             >
                 <!-- Decorative Background -->
                 <img
-                    src={wavyLines.src}
+                    src={colors.wavyLines.src}
                     alt=""
                     aria-hidden="true"
                     class="absolute right-1/2 translate-x-1/2 md:right-0 md:translate-x-0 bottom-1/2 translate-y-1/2 select-none pointer-events-none"
                 />
 
                 <!-- Foreground Hero Image -->
-                <img
-                    src={heroImgSolutions.src}
-                    alt="Illustration of Titan Lighthouse cloud licensing platform"
-                    loading="lazy"
-                    class="z-20 object-contain drop-shadow-2xl max-h-[20rem] md:max-h-[24rem] lg:max-h-[28rem] xl:max-h-[32rem]"
-                />
+                <div class="relative aspect-square w-full max-w-sm lg:max-w-lg">
+                    <!-- Triangle background -->
+                    <div
+                        class={`absolute top-0 left-0 w-full h-full ${colors.triangleBg}`}
+                        style="clip-path: polygon(100% 100%, 0% 100%, 50% 0%);"
+                    >
+                    </div>
+
+                    <!-- Image -->
+                    <img
+                        src={manMetLaptop.src}
+                        alt="Illustration of Titan Lighthouse cloud licensing platform"
+                        loading="lazy"
+                        class="absolute inset-0 w-full h-full object-cover z-20 drop-shadow-2xl"
+                    />
+                </div>
             </div>
         </div>
     </div>

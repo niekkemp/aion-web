@@ -1,0 +1,49 @@
+---
+const { header, text, theme = "bw", link = false } = Astro.props;
+
+const themes = {
+    blue: {
+        border: "border-blue-100",
+        header: "text-blue-400",
+    },
+    green: {
+        border: "border-green-100",
+        header: "text-green-400",
+    },
+    red: {
+        border: "border-red-100",
+        header: "text-red-400",
+    },
+    bw: {
+        border: "border-white-200",
+        header: "text-black-200",
+    },
+};
+
+const colors = themes[theme] ?? themes.bw;
+---
+
+<article
+    class={`bg-white-100 border ${colors.border} rounded-2xl p-6 text-center md:text-start shadow-sm md:shadow-md z-10`}
+>
+    <!-- Icon -->
+    <slot />
+
+    <!-- Title -->
+    <h3 class={`${colors.header} font-semibold text-lg mb-2`}>
+        {header}
+    </h3>
+
+    <!-- Description -->
+    <p class="text-gray leading-relaxed">{text}</p>
+
+    {
+        link && (
+            <p class="mt-8 text-gray">
+                <a class="btn-primary" href={link}>
+                    Learn more →
+                </a>
+            </p>
+        )
+    }
+</article>

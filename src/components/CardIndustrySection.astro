@@ -1,0 +1,25 @@
+---
+const { header, subText, useCases, theme = "bw" } = Astro.props;
+
+import SectionContainer from "./SectionContainer.astro";
+import SectionHeadingCentered from "./SectionHeadingCentered.astro";
+import CardIndustry from "./CardIndustry.astro";
+---
+
+<SectionContainer>
+    <SectionHeadingCentered header={header} subText={subText} theme={theme} />
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
+        {
+            useCases.map((useCase) => (
+                <CardIndustry
+                    header={useCase.header}
+                    text={useCase.text}
+                    emoji={useCase.emoji}
+                    link={useCase.link}
+                    theme={theme}
+                />
+            ))
+        }
+    </div>
+</SectionContainer>

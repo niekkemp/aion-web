@@ -1,0 +1,48 @@
+---
+const { header, text, theme = "bw" } = Astro.props;
+import Card from "./Card.astro";
+
+// Map theme → Tailwind classes
+const themes = {
+    blue: {
+        bg: "bg-blue-100",
+        text: "text-blue-400",
+    },
+    green: {
+        bg: "bg-green-100",
+        text: "text-green-400",
+    },
+    red: {
+        bg: "bg-red-100",
+        text: "text-red-400",
+    },
+    bw: {
+        bg: "bg-white-200",
+        text: "bg-gradient-to-tr from-red-200 via-blue-200 to-green-200 bg-clip-text text-transparent",
+    },
+};
+
+const colors = themes[theme] ?? themes.bw;
+---
+
+<Card header={header} text={text} theme={theme}>
+    <div class="flex justify-center md:justify-start mb-4">
+        <!-- Circle background -->
+        <span
+            class={`flex items-center justify-center w-12 h-12 rounded-full ${colors.bg} shadow-sm`}
+        >
+            <!-- Icon -->
+            {
+                theme === "bw" ? (
+                    <span class="bg-gradient-to-tr from-red-300 via-blue-300 to-green-300 bg-clip-text text-transparent">
+                        <slot />
+                    </span>
+                ) : (
+                    <span class={colors.text}>
+                        <slot />
+                    </span>
+                )
+            }
+        </span>
+    </div>
+</Card>

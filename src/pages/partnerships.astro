@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import IndustryHero from "../components/IndustryHero.astro";
-import SolutionSplitSection from "../components/SolutionSplitSection.astro";
+import SectionSplit from "../components/SectionSplit.astro";
 import CtaSection from "../components/CtaSection.astro";
 
 // partner images / icons
@@ -9,6 +9,8 @@ import heroImg from "../assets/partners-hero.jpg";
 import resellerImg from "../assets/partners-reseller.jpg";
 import strategicImg from "../assets/partners-strategic.jpg";
 import referralImg from "../assets/partners-referral.jpg";
+
+import SectionHeadingCenteredSection from "../components/SectionHeadingCenteredSection.astro";
 ---
 
 <Layout title="Partnerships">
@@ -21,46 +23,33 @@ import referralImg from "../assets/partners-referral.jpg";
     />
 
     <!-- Split: Reseller -->
-    <SolutionSplitSection
-        title="Reseller Partners"
-        body="Resellers integrate AION Media Group solutions into their own product and service offerings. From hardware integrators to content service providers, these partners deliver our technology under their brand or in co-branded setups. They provide first-line support, training and local market knowledge, ensuring that clients receive the best possible service in their own language and context."
+    <SectionSplit
+        header="Reseller Partners"
+        text="Resellers integrate AION Media Group solutions into their own product and service offerings. From hardware integrators to content service providers, these partners deliver our technology under their brand or in co-branded setups. They provide first-line support, training and local market knowledge, ensuring that clients receive the best possible service in their own language and context."
         image={resellerImg}
     />
 
     <!-- Split: Strategic -->
-    <SolutionSplitSection
-        title="Strategic Partners"
-        body="We work closely with partners who complement our platform with connectivity, devices, or content. These collaborations create complete ecosystems where secure video delivery becomes part of a broader solution. By aligning strategies, we ensure that clients benefit from both technical innovation and market expertise."
+    <SectionSplit
+        header="Strategic Partners"
+        text="We work closely with partners who complement our platform with connectivity, devices, or content. These collaborations create complete ecosystems where secure video delivery becomes part of a broader solution. By aligning strategies, we ensure that clients benefit from both technical innovation and market expertise."
         image={strategicImg}
         reverse={true}
+        bg={true}
     />
 
     <!-- Split: Referral -->
-    <SolutionSplitSection
-        title="Referral Partners"
-        body="Referral partners introduce AION Media Group into projects and tenders where our technology fits seamlessly. This model allows consultants, agencies and specialists to bring additional value to their clients while ensuring that projects are powered by proven, scalable technology."
+    <SectionSplit
+        header="Referral Partners"
+        text="Referral partners introduce AION Media Group into projects and tenders where our technology fits seamlessly. This model allows consultants, agencies and specialists to bring additional value to their clients while ensuring that projects are powered by proven, scalable technology."
         image={referralImg}
     />
 
     <!-- Business Value -->
-    <section class="bg-white-200 py-10 md:py-14 shadow-sm md:shadow-md">
-        <div class="container text-center max-w-3xl">
-            <h2 class="text-blue-400 text-2xl sm:text-3xl font-bold">
-                The business value
-            </h2>
-            <p class="text-gray mt-3 text-base sm:text-lg leading-relaxed">
-                Through these different partnership models, AION Media Group
-                scales beyond what any single company could achieve alone.
-                Partners gain access to enterprise-grade technology with
-                Hollywood-approved DRM and offline-first infrastructures, while
-                clients benefit from local expertise and trusted long-term
-                relationships.
-            </p>
-            <p class="mt-4 font-semibold">
-                Together we build solutions that scale.
-            </p>
-        </div>
-    </section>
+    <SectionHeadingCenteredSection
+        header="The business value"
+        subText="Through these different partnership models, AION Media Group scales beyond what any single company could achieve alone. Partners gain access to enterprise-grade technology with Hollywood-approved DRM and offline-first infrastructures, while clients benefit from local expertise and trusted long-term relationships."
+    />
 
     <!-- CTA -->
     <CtaSection

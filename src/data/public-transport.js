@@ -12,8 +12,8 @@ export const industryHero = {
 };
 
 export const industryMain = {
-    title: "Entertainment and information on the move",
-    body: `Public transport operators look to enrich passenger journeys with media services, 
+    header: "Entertainment and information on the move",
+    text: `Public transport operators look to enrich passenger journeys with media services, 
          from entertainment to real-time information. 
          These services must be reliable and lightweight to deploy across fleets.`,
     image: SupportImg,

@@ -1,0 +1,34 @@
+---
+const {
+    header,
+    subText,
+    cardDetails,
+    theme = "bw",
+    bg = true,
+    ctaHref = "/contact",
+} = Astro.props;
+
+import SectionContainer from "./SectionContainer.astro";
+import SectionHeadingCentered from "./SectionHeadingCentered.astro";
+import CardCircledIcon from "./CardCircledIcon.astro";
+---
+
+<SectionContainer bg={bg}>
+    <SectionHeadingCentered header={header} subText={subText} theme={theme} />
+
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-10">
+        {
+            cardDetails.map((details) => (
+                <CardCircledIcon
+                    header={details.header}
+                    text={details.text}
+                    icon={details.icon}
+                    theme={theme}
+                />
+            ))
+        }
+    </div>
+    <a class="block mx-auto w-fit btn-secondary" href={ctaHref}
+        >Request a demo →</a
+    >
+</SectionContainer>

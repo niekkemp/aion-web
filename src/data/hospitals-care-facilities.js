@@ -12,8 +12,8 @@ export const industryHero = {
 };
 
 export const industryMain = {
-    title: "Entertainment and training with patient-first design",
-    body: `Hospitals and care facilities serve both patients and staff. 
+    header: "Entertainment and training with patient-first design",
+    text: `Hospitals and care facilities serve both patients and staff. 
          Entertainment can improve the patient experience, 
          while secure training platforms support staff development and compliance.`,
     image: SupportImg,

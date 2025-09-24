@@ -1,0 +1,29 @@
+---
+const { header, text, emoji, theme = "bw", link = false } = Astro.props;
+import Card from "./Card.astro";
+
+const themes = {
+    blue: {
+        emoji: "from-blue-200",
+    },
+    green: {
+        emoji: "from-green-200",
+    },
+    red: {
+        emoji: "from-red-200",
+    },
+    bw: {
+        emoji: "from-gray",
+    },
+};
+
+const colors = themes[theme] ?? themes.bw;
+---
+
+<Card header={header} text={text} theme={theme} link={link}>
+    <div
+        class=`text-4xl mb-4 bg-gradient-to-tr ${colors.emoji} to-white-200 bg-clip-text text-transparent`
+    >
+        {emoji}
+    </div>
+</Card>

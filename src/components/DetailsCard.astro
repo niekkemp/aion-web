@@ -1,0 +1,53 @@
+---
+const { details, theme = "bw" } = Astro.props;
+import Card from "./Card.astro";
+
+// Map theme → Tailwind classes
+const themes = {
+    blue: {
+        bg: "bg-blue-100",
+        text: "text-blue-400",
+    },
+    green: {
+        bg: "bg-green-100",
+        text: "text-green-400",
+    },
+    red: {
+        bg: "bg-red-100",
+        text: "text-red-400",
+    },
+    bw: {
+        bg: "bg-white-200",
+        text: "text-black-200",
+    },
+};
+
+const colors = themes[theme] ?? themes.bw;
+---
+
+<Card details={details} theme={theme}>
+    <div class="flex justify-center md:justify-start mb-4">
+        <span
+            class={`flex items-center justify-center w-12 h-12 rounded-full ${colors.bg} ${colors.text} shadow-sm`}
+        >
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-7 h-7"
+            >
+                {
+                    Array.isArray(details.icon) ? (
+                        details.icon.map((d) => <path d={d} />)
+                    ) : (
+                        <path d={details.icon} />
+                    )
+                }
+            </svg>
+        </span>
+    </div>
+</Card>

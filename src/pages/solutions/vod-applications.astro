@@ -2,8 +2,8 @@
 import Layout from "../../layouts/Layout.astro";
 import SolutionFeaturesSection from "../../components/SolutionFeaturesSection.astro";
 import SolutionsHero from "../../components/SolutionsHero.astro";
-import SplitSection from "../../components/SolutionSplitSection.astro";
-import SolutionUseCasesSection from "../../components/SolutionUseCasesSection.astro";
+import SectionSplit from "../../components/SectionSplit.astro";
+import CardIndustrySection from "../../components/CardIndustrySection.astro";
 import CtaSection from "../../components/CtaSection.astro";
 
 import {
@@ -13,36 +13,43 @@ import {
     useCases,
     sections2,
 } from "../../data/vod-applications.js";
+
+import CardCircledIconSection from "../../components/CardCircledIconSection.astro";
+
+const theme = "blue";
 ---
 
 <Layout title="Hardware Solutions">
     <!-- Hero Section -->
-    <SolutionsHero heroData={heroData} />
+    <SolutionsHero heroData={heroData} theme={theme} />
 
     <!-- 1st Content Sections -->
-    {sections1.map((s) => <SplitSection {...s} />)}
+    {sections1.map((s) => <SectionSplit {...s} theme={theme} />)}
 
     <!-- Features Section -->
-    <SolutionFeaturesSection
+    <CardCircledIconSection
+        theme={theme}
         header="Why Choose AION VOD Applications"
         subText="AION VOD Applications deliver secure, branded video apps with offline-first capabilities and cross-platform deployment — built to work everywhere, for every audience."
-        features={features}
+        cardDetails={features}
     />
 
     <!-- Use Cases Section -->
-    <SolutionUseCasesSection
+    <CardIndustrySection
         header="Use Cases Across Industries"
         subText="AION VOD Applications power branded, secure, and offline-ready video apps across aviation, healthcare, defense, education, and maritime — keeping audiences connected wherever they are."
         useCases={useCases}
+        theme={theme}
     />
 
     <!-- 2nd Content Sections -->
     <div class="bg-white-200 shadow-sm md:shadow-md">
-        {sections2.map((s) => <SplitSection {...s} />)}
+        {sections2.map((s) => <SectionSplit {...s} theme={theme} />)}
     </div>
 
     <CtaSection
         header="Launch Branded, Secure VOD Apps with AION"
         subText="AION VOD Applications deliver premium user experiences with Hollywood-approved DRM, offline-first playback, and seamless multi-device compatibility. Get in touch today to schedule a personalized demo and see how we can help you launch fast, scale globally, and stay secure."
+        theme={theme}
     />
 </Layout>

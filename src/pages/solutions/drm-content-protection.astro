@@ -2,9 +2,10 @@
 import Layout from "../../layouts/Layout.astro";
 import SolutionFeaturesSection from "../../components/SolutionFeaturesSection.astro";
 import SolutionsHero from "../../components/SolutionsHero.astro";
-import SplitSection from "../../components/SolutionSplitSection.astro";
-import SolutionUseCasesSection from "../../components/SolutionUseCasesSection.astro";
+import SectionSplit from "../../components/SectionSplit.astro";
+import CardIndustrySection from "../../components/CardIndustrySection.astro";
 import CtaSection from "../../components/CtaSection.astro";
+import CardCircledIconSection from "../../components/CardCircledIconSection.astro";
 
 import {
     sections1,
@@ -13,36 +14,41 @@ import {
     useCases,
     sections2,
 } from "../../data/drm-content-protection.js";
+
+const theme = "red";
 ---
 
 <Layout title="DRM & Content Protection">
     <!-- Hero Section -->
-    <SolutionsHero heroData={heroData} />
+    <SolutionsHero heroData={heroData} theme={theme} />
 
     <!-- 1st Content Sections -->
-    {sections1.map((s) => <SplitSection {...s} />)}
+    {sections1.map((s) => <SectionSplit {...s} theme={theme} />)}
 
     <!-- Features Section -->
-    <SolutionFeaturesSection
+    <CardCircledIconSection
+        theme={theme}
         header="Why Choose AION DRM"
         subText="AION DRM delivers Hollywood-approved security, advanced rights management, and seamless integration — protecting your premium content everywhere."
-        features={features}
+        cardDetails={features}
     />
 
     <!-- Use Cases Section -->
-    <SolutionUseCasesSection
+    <CardIndustrySection
         header="Use Cases Across Industries"
         subText="AION DRM powers secure content delivery across aviation, defense, healthcare, and mobility — protecting premium libraries wherever they're delivered."
         useCases={useCases}
+        theme={theme}
     />
 
     <!-- 2nd Content Sections -->
     <div class="bg-white-200 shadow-sm md:shadow-md">
-        {sections2.map((s) => <SplitSection {...s} />)}
+        {sections2.map((s) => <SectionSplit {...s} theme={theme} />)}
     </div>
 
     <CtaSection
         header="Protect Premium Content with AION DRM"
         subText="AION DRM delivers Hollywood-approved security, advanced rights management, and seamless integration. Get in touch today to schedule a personalized demo and see how we can protect your premium libraries across streaming, offline, and hybrid environments."
+        theme={theme}
     />
 </Layout>

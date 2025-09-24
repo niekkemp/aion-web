@@ -7,72 +7,59 @@ import support from "../assets/aboutus-support.jpg";
 import IndustryHero from "../components/IndustryHero.astro";
 import CtaSection from "../components/CtaSection.astro";
 import SolutionFeaturesSection from "../components/SolutionFeaturesSection.astro";
-import SolutionSplitSection from "../components/SolutionSplitSection.astro";
 
-const expertise = {
+import SectionHeadingCenteredSection from "../components/SectionHeadingCenteredSection.astro";
+
+import SectionSplit from "../components/SectionSplit.astro";
+
+export const expertise = {
     header: "Our expertise",
     subText:
         "We specialize in designing and delivering solutions across the entire media chain. By combining these capabilities, AION Media Group ensures that organizations can license, deliver and monetize video at scale, even in the most demanding conditions.",
     features: [
         {
-            title: "Hollywood-approved DRM and content protection",
-            description:
-                "Trusted by major studios, our DRM solutions safeguard premium content with Hollywood-grade compliance and forensic watermarking.",
-            icon: `
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="M12 3l7 4v5c0 4.418-2.686 8.418-7 9-4.314-.582-7-4.582-7-9V7l7-4z" />
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="M9 12l2 2 4-4" />
-      `,
+            header: "Hollywood-approved DRM and content protection",
+            text: "Trusted by major studios, our DRM solutions safeguard premium content with Hollywood-grade compliance and forensic watermarking.",
+            icon: [
+                "M12 3l7 4v5c0 4.418-2.686 8.418-7 9-4.314-.582-7-4.582-7-9V7l7-4z",
+                "M9 12l2 2 4-4",
+            ],
         },
         {
-            title: "Media supply chain & workflow automation",
-            description:
-                "Streamline ingest, transcoding, packaging, and distribution with automated, end-to-end workflows that reduce complexity and cost.",
-            icon: `
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="M3 7h6m0 0L6 4m3 3-3 3M21 17h-6m0 0l3 3m-3-3 3-3" />
-      `,
+            header: "Media supply chain & workflow automation",
+            text: "Streamline ingest, transcoding, packaging, and distribution with automated, end-to-end workflows that reduce complexity and cost.",
+            icon: ["M3 7h6m0 0L6 4m3 3-3 3M21 17h-6m0 0l3 3m-3-3 3-3"],
         },
         {
-            title: "Offline-first infrastructures",
-            description:
-                "Deliver seamless media experiences for aviation, maritime, defense, and healthcare — even in fully disconnected environments.",
-            icon: `
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="M5 13l4 4L19 7" />
-      `,
+            header: "Offline-first infrastructures",
+            text: "Deliver seamless media experiences for aviation, maritime, defense, and healthcare — even in fully disconnected environments.",
+            icon: ["M5 13l4 4L19 7"],
         },
         {
-            title: "Branded VOD applications & streaming platforms",
-            description:
-                "Customizable, white-label applications for OTT services and enterprises, designed to reflect your brand and engage audiences.",
-            icon: `
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-  d="M15 10l4.55-2.28a1 1 0 0 1 1.45.9v6.76a1 1 0 0 1-1.45.9L15 14V10zM4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" />
-
-      `,
+            header: "Branded VOD applications & streaming platforms",
+            text: "Customizable, white-label applications for OTT services and enterprises, designed to reflect your brand and engage audiences.",
+            icon: [
+                "M15 10l4.55-2.28a1 1 0 0 1 1.45.9v6.76a1 1 0 0 1-1.45.9L15 14V10z",
+                "M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z",
+            ],
         },
         {
-            title: "Hardware integration",
-            description:
-                "From portable servers to ruggedized systems, we integrate secure playback and storage hardware tailored to your operational needs.",
-            icon: `
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="M4 6h16M4 10h16M4 14h16M4 18h16" />
-      `,
+            header: "Hardware integration",
+            text: "From portable servers to ruggedized systems, we integrate secure playback and storage hardware tailored to your operational needs.",
+            icon: ["M4 6h16M4 10h16M4 14h16M4 18h16"],
         },
         {
-            title: "Analytics & actionable insights",
-            description:
-                "Turn usage data into decisions with real-time dashboards and advanced reporting tailored for media operations.",
-            icon: `
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="M11 19V6a1 1 0 112 0v13a1 1 0 11-2 0zM5 19v-6a1 1 0 112 0v6a1 1 0 11-2 0zM17 19v-9a1 1 0 112 0v9a1 1 0 11-2 0z" />
-      `,
+            header: "Analytics & actionable insights",
+            text: "Turn usage data into decisions with real-time dashboards and advanced reporting tailored for media operations.",
+            icon: [
+                "M11 19V6a1 1 0 112 0v13a1 1 0 11-2 0zM5 19v-6a1 1 0 112 0v6a1 1 0 11-2 0zM17 19v-9a1 1 0 112 0v9a1 1 0 11-2 0z",
+            ],
         },
     ],
 };
+
+const theme = "bw";
+import CardCircledIconSection from "../components/CardCircledIconSection.astro";
 ---
 
 <Layout title="About Us">
@@ -85,31 +72,36 @@ const expertise = {
     />
 
     <!-- Vision -->
-    <SolutionSplitSection
-        title="Our Vision"
-        body="We see a future where media can be delivered anywhere, securely, efficiently and without barriers. Whether it ispremium entertainment, training content or criticalcommunications, AION Media Group ensures that video flows seamlessly from source to audience."
+    <SectionSplit
+        header="Our Vision"
+        text="We see a future where media can be delivered anywhere, securely, efficiently and without barriers. Whether it ispremium entertainment, training content or criticalcommunications, AION Media Group ensures that video flows seamlessly from source to audience."
         image={support}
     />
 
     <!-- Expertise -->
-    <SolutionFeaturesSection {...expertise} />
+    <CardCircledIconSection
+        theme={theme}
+        header={expertise.header}
+        subText={expertise.subText}
+        cardDetails={expertise.features}
+    />
 
     <!-- Leadership -->
     <section class="py-10 md:py-14">
         <div class="container">
             <h2
-                class="text-2xl sm:text-3xl font-bold text-blue-400 text-center mb-12"
+                class="text-2xl sm:text-3xl font-bold text-black-200 text-center mb-12"
             >
                 Our Leadership
             </h2>
-            <div class="grid gap-12 md:grid-cols-2">
+            <div class="grid gap-12 md:gap-30 md:grid-cols-2 max-w-5xl mx-auto">
                 <div class="text-center">
                     <img
                         src={jonImg.src}
                         alt="Jon Vink"
                         class="w-40 h-40 rounded-full mx-auto mb-4 object-cover shadow-md"
                     />
-                    <h3 class="text-blue-400 font-semibold text-lg mb-2">
+                    <h3 class="text-black-200 font-semibold text-lg mb-2">
                         Jon Vink, CEO
                     </h3>
                     <p class="text-gray-600 mt-2 max-w-md mx-auto">
@@ -125,7 +117,7 @@ const expertise = {
                         alt="Cees Smits"
                         class="w-40 h-40 rounded-full mx-auto mb-4 object-cover shadow-md"
                     />
-                    <h3 class="text-blue-400 font-semibold text-lg">
+                    <h3 class="text-black-200 font-semibold text-lg">
                         Cees Smits, CTO
                     </h3>
                     <p class="text-gray leading-relaxed mt-2 max-w-md mx-auto">
@@ -140,20 +132,12 @@ const expertise = {
     </section>
 
     <!-- Partnerships -->
-    <section class="bg-white-200 py-10 md:py-14 shadow-sm md:shadow-md">
-        <div class="container text-center max-w-3xl">
-            <h2 class="text-blue-400 text-2xl sm:text-3xl font-bold">
-                Partnerships
-            </h2>
-            <p class="text-gray mt-3 text-base sm:text-lg leading-relaxed">
-                We believe the best results are achieved together. That is why
-                we actively work with integrators, resellers and technology
-                partners who extend our reach and bring local expertise to
-                clients across the world. Through these collaborations, AION
-                Media Group delivers scalable solutions tailored to each market.
-            </p>
-        </div>
-    </section>
+    <SectionHeadingCenteredSection
+        header="Partnerships"
+        subText="We believe the best results are achieved together. That is why we actively work with integrators, resellers and technology partners who extend our reach and bring local expertise to clients across the world. Through these collaborations, AION Media Group delivers scalable solutions tailored to each market"
+        ctaHref="/partnerships"
+        ctaText="Explore partnerships →"
+    />
 
     <!-- Contact -->
     <CtaSection

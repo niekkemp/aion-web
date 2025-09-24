@@ -1,0 +1,35 @@
+---
+const { header, text, icon, theme = "bw" } = Astro.props;
+
+import CardCircled from "./CardCircled.astro";
+
+// Define gradient ids so they don’t clash if multiple components render
+const gradientId = `grad-${Math.random().toString(36).slice(2, 8)}`;
+---
+
+<CardCircled header={header} text={text} theme={theme}>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    class="w-7 h-7"
+    stroke={theme === "bw" ? `url(#${gradientId})` : "currentColor"}
+    fill="none"
+  >
+    {theme === "bw" && (
+      <defs>
+        <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#0467F1" />  <!-- blue-300 -->
+          <stop offset="50%" stop-color="#44BBA4" /> <!-- green-300 -->
+          <stop offset="100%" stop-color="#E54F6D" /> <!-- red-300 -->
+        </linearGradient>
+      </defs>
+    )}
+
+    {Array.isArray(icon)
+      ? icon.map((d) => <path d={d} />)
+      : <path d={icon} />}
+  </svg>
+</CardCircled>

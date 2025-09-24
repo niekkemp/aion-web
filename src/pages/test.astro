@@ -1,0 +1,18 @@
+---
+import Layout from "../layouts/Layout.astro";
+import CardCircled from "../components/CardCircled.astro";
+
+const cardData = {
+    title: "Future-proof by design",
+    description:
+        "TITAN Lighthouse goes beyond replacing Widevine. It's built for what's next — from emerging codecs to evolving business models — designed to scale with the next decade of digital media.",
+    icon: "M5 12h14M13 5l7 7-7 7",
+    theme: "bw",
+};
+---
+
+<Layout title="Home">
+    <div class="py-10 flex h-full justify-center items-center w-90 mx-auto">
+        <CardCircled details={cardData}> 1 </CardCircled>
+    </div>
+</Layout>

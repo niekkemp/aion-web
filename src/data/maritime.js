@@ -12,8 +12,8 @@ export const industryHero = {
 };
 
 export const industryMain = {
-    title: "Media at sea without interruption",
-    body: `Maritime operators need to serve both crew and passengers with secure entertainment and training. 
+    header: "Media at sea without interruption",
+    text: `Maritime operators need to serve both crew and passengers with secure entertainment and training. 
          Ships spend weeks away from reliable connectivity, making traditional cloud-based streaming unworkable.`,
     image: SupportImg,
 };
