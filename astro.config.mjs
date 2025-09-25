@@ -4,6 +4,8 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://niekkemp.github.io',
+  base: '/aion-web',
   vite: {
     plugins: [tailwindcss()]
   }
